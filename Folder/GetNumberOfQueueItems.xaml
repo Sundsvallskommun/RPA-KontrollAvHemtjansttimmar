@@ -1,0 +1,640 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="GetNumberOfQueueItems" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="FlowInstanceId" Type="InArgument(x:String)" />
+    <x:Property Name="FromDate" Type="InArgument(s:DateTime)" />
+    <x:Property Name="QueueItemsNumberOfNew" Type="OutArgument(x:Int32)" />
+    <x:Property Name="QueueName" Type="InArgument(x:String)" />
+    <x:Property Name="QueueFolder" Type="InArgument(x:String)" />
+    <x:Property Name="FoundQueueItems" Type="InOutArgument(scg:IEnumerable(ui:QueueItem))" />
+    <x:Property Name="QueueItemsNumberOfUnique" Type="OutArgument(x:Int32)" />
+    <x:Property Name="QueueItemsNumberOfSuccessful" Type="OutArgument(x:Int32)" />
+    <x:Property Name="QueueItemsNumberOfSE" Type="OutArgument(x:Int32)" />
+    <x:Property Name="QueueItemsNumberOfNotEnrolled" Type="OutArgument(x:Int32)" />
+    <x:Property Name="QueueItemsNumberOfAlreadyInvoiced" Type="OutArgument(x:Int32)" />
+    <x:Property Name="StatusNameNotEnrolled" Type="InArgument(x:String)" />
+    <x:Property Name="StatusNameAlreadyInvoiced" Type="InArgument(x:String)" />
+    <x:Property Name="BREItems" Type="OutArgument(scg:IEnumerable(x:String))" />
+    <x:Property Name="QueueItemsTotalNumber" Type="OutArgument(x:Int32)" />
+    <x:Property Name="in_CurrentItemsBREDescription" Type="InArgument(x:String)" />
+    <x:Property Name="in_CurrentItemIsBRE" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_CurrentItemIsSE" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_CurrentItemIsSuccess" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_CurrentItemIsNotEnrolled" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_CurrentItemIsAlreadyInvoiced" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_CurrentItemIsNotInAlvis" Type="InArgument(x:Boolean)" />
+    <x:Property Name="StatusNameNotInAlvis" Type="InArgument(x:String)" />
+    <x:Property Name="QueueItemsNumberOfNotInAlvis" Type="OutArgument(x:Int32)" />
+    <x:Property Name="in_CurrentItemIsWrongGrade" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_StatusNameWrongGrade" Type="InArgument(x:String)" />
+    <x:Property Name="out_QueueItemsNumberOfWrongGrade" Type="OutArgument(x:Int32)" />
+    <x:Property Name="in_CurrentItemIsNotPartOfMunicipality" Type="InArgument(x:Boolean)" />
+    <x:Property Name="in_StatusNameIsNotPartOfMunicipality" Type="InArgument(x:String)" />
+    <x:Property Name="out_QueueItemsNumberIsNotPartOfMunicipality" Type="OutArgument(x:Int32)" />
+  </x:Members>
+  <this:GetNumberOfQueueItems.QueueFolder>
+    <InArgument x:TypeArguments="x:String" />
+  </this:GetNumberOfQueueItems.QueueFolder>
+  <sap:VirtualizedContainerService.HintSize>3008,6793</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="82">
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="88">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.Extensions.DependencyModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Check New and Failed" sap:VirtualizedContainerService.HintSize="634,6728" sap2010:WorkflowViewState.IdRef="Sequence_65">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Default="5000" Name="TimeoutShort" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="QueueItemsBRE" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="QueueItemsSuccessful" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="QueueItemsSE" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="QueueItemsNew" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="QueueItemsNotEnrolled" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="QueueItemsAlreadyInvoiced" />
+      <Variable x:TypeArguments="x:String" Name="ReasonFilter" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="QueueItemsWrongGrade" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="QueueItemsNotInAlvis" />
+      <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="QueueItemsIsNotPartOfMunicipality" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:Comment sap:VirtualizedContainerService.HintSize="572,75" sap2010:WorkflowViewState.IdRef="Comment_1" Text="Hämtad från kontrollera externa fakturor &quot;finish process if las row&quot;&#xA;" />
+    <ui:RetryScope DisplayName="Retry Scope Get Queue Items" sap:VirtualizedContainerService.HintSize="572,52" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="594,867" sap2010:WorkflowViewState.IdRef="Sequence_66">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="TempQueueItems" />
+              <Variable x:TypeArguments="x:Int32" Name="LoopIndex" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign Empty List" sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_92">
+              <Assign.To>
+                <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[FoundQueueItems]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[new List(Of QueueItem)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InterruptibleDoWhile Condition="[TempQueueItems IsNot Nothing AndAlso TempQueueItems.Count &gt; 0]" CurrentIndex="[LoopIndex]" DisplayName="Do While Still Getting Queue Items" sap:VirtualizedContainerService.HintSize="532,634" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1" MaxIterations="10">
+              <ui:InterruptibleDoWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,468" sap2010:WorkflowViewState.IdRef="Sequence_100">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Int32" Name="SkipItems" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign Skip Items" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_93">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[SkipItems]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[LoopIndex * 100]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:GetQueueItems Duration="{x:Null}" Priority="{x:Null}" To="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" FolderPath="[QueueFolder]" From="[FromDate]" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New, InProgress, Failed, Successful, Retried" QueueName="[QueueName]" Reference="[FlowInstanceId]" Result="[TempQueueItems]" Skip="[SkipItems]" TimeoutMS="[TimeoutShort]" Top="100" />
+                  <If Condition="[TempQueueItems IsNot Nothing AndAlso TempQueueItems.Count &gt; 0]" DisplayName="If Any Queue Items Gotten" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="If_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_101">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_91">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[FoundQueueItems]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[FoundQueueItems.Concat(TempQueueItems)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_102">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ui:InterruptibleDoWhile.Body>
+            </ui:InterruptibleDoWhile>
+          </Sequence>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean" />
+      </ui:RetryScope.Condition>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:RetryScope>
+    <Assign DisplayName="Assign Successful" sap:VirtualizedContainerService.HintSize="572,82" sap2010:WorkflowViewState.IdRef="Assign_21">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[QueueItemsSuccessful]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[FoundQueueItems.Where(function(i) i.Status = QueueItemStatus.Successful).GroupBy(function(i) i.Reference).Select(function(i) i.First)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Successful Count" sap:VirtualizedContainerService.HintSize="572,82" sap2010:WorkflowViewState.IdRef="Assign_64">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfSuccessful]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[QueueItemsSuccessful.Select(function(i) i.Reference).Cast(of String).ToList().Distinct().Count]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[in_CurrentItemIsSuccess]" DisplayName="If Current Item Is Successful" sap:VirtualizedContainerService.HintSize="572,352" sap2010:WorkflowViewState.IdRef="If_6">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_78">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign Successful Count + 1" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_72">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfSuccessful]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfSuccessful + 1]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_79">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <Assign DisplayName="Assign System Exception" sap:VirtualizedContainerService.HintSize="572,83" sap2010:WorkflowViewState.IdRef="Assign_58">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[QueueItemsSE]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[FoundQueueItems.Where(function(i) i.Status = QueueItemStatus.Failed AndAlso i.ProcessingException.Type.Equals(ProcessingExceptionType.ApplicationException)).GroupBy(function(i) i.Reference).Select(function(i) i.First)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign System Exception Count" sap:VirtualizedContainerService.HintSize="572,83" sap2010:WorkflowViewState.IdRef="Assign_65">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfSE]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[QueueItemsSE.Select(function(i) i.Reference).Cast(of String).ToList().Distinct().Count]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[in_CurrentItemIsSE]" DisplayName="If Current Item Is SE" sap:VirtualizedContainerService.HintSize="572,354" sap2010:WorkflowViewState.IdRef="If_7">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="476,171" sap2010:WorkflowViewState.IdRef="Sequence_80">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign System Exception Count + 1" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_73">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfSE]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfSE + 1]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_81">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <Assign DisplayName="Assign New" sap:VirtualizedContainerService.HintSize="572,83" sap2010:WorkflowViewState.IdRef="Assign_22">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[QueueItemsNew]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[FoundQueueItems.Where(function(i) i.Status = QueueItemStatus.New).GroupBy(function(i) i.Reference).Select(function(i) i.First)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign New Count" sap:VirtualizedContainerService.HintSize="572,83" sap2010:WorkflowViewState.IdRef="Assign_66">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfNew]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[QueueItemsNew.Select(function(i) i.Reference).Cast(of String).ToList().Distinct().Count]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Business Rules Exception Items" sap:VirtualizedContainerService.HintSize="572,83" sap2010:WorkflowViewState.IdRef="Assign_59">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[QueueItemsBRE]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[FoundQueueItems.Where(function(i) i.Status = QueueItemStatus.Failed AndAlso i.ProcessingException.Type.Equals(ProcessingExceptionType.BusinessException)).GroupBy(function(i) i.Reference).Select(function(i) i.First)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Sequence DisplayName="Sequence for Not Enrolled" sap:VirtualizedContainerService.HintSize="572,793" sap2010:WorkflowViewState.IdRef="Sequence_103">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeCode ContinueOnError="{x:Null}" Code="FilteredQueueItems = QueueItems.Where(Function(i) i.Status = QueueItemStatus.Failed AndAlso i.ProcessingException.Type.Equals(ProcessingExceptionType.BusinessException) AndAlso i.ProcessingException.Reason.Equals(StatusName)).GroupBy(Function(i) i.Reference).Select(Function(i) i.First)" DisplayName="Get Not Enrolled" sap:VirtualizedContainerService.HintSize="510,165" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+        <ui:InvokeCode.Arguments>
+          <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="QueueItems">[FoundQueueItems]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="StatusName">[StatusNameNotEnrolled]</InArgument>
+          <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="FilteredQueueItems">[QueueItemsNotEnrolled]</OutArgument>
+        </ui:InvokeCode.Arguments>
+      </ui:InvokeCode>
+      <Assign DisplayName="Assign Not Enrolled Number" sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="Assign_85">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfNotEnrolled]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[QueueItemsNotEnrolled.Count]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <If Condition="[in_CurrentItemIsNotEnrolled]" DisplayName="If Current Items Is Not Enrolled" sap:VirtualizedContainerService.HintSize="510,354" sap2010:WorkflowViewState.IdRef="If_4">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="476,171" sap2010:WorkflowViewState.IdRef="Sequence_74">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign Not Enrolled Count + 1" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_74">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfNotEnrolled]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfNotEnrolled + 1]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_75">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Sequence DisplayName="Sequence for Already Invoiced" sap:VirtualizedContainerService.HintSize="572,793" sap2010:WorkflowViewState.IdRef="Sequence_104">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeCode ContinueOnError="{x:Null}" Code="FilteredQueueItems = QueueItems.Where(Function(i) i.Status = QueueItemStatus.Failed AndAlso i.ProcessingException.Type.Equals(ProcessingExceptionType.BusinessException) AndAlso i.ProcessingException.Reason.Equals(StatusName)).GroupBy(Function(i) i.Reference).Select(Function(i) i.First)" DisplayName="Get Already Invoiced" sap:VirtualizedContainerService.HintSize="510,165" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+        <ui:InvokeCode.Arguments>
+          <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="QueueItems">[FoundQueueItems]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="StatusName">[StatusNameAlreadyInvoiced]</InArgument>
+          <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="FilteredQueueItems">[QueueItemsAlreadyInvoiced]</OutArgument>
+        </ui:InvokeCode.Arguments>
+      </ui:InvokeCode>
+      <Assign DisplayName="Assign Already Invoiced Number" sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="Assign_86">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfAlreadyInvoiced]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[QueueItemsAlreadyInvoiced.Count]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <If Condition="[in_CurrentItemIsAlreadyInvoiced]" DisplayName="If Current Item Is Already Invoiced" sap:VirtualizedContainerService.HintSize="510,354" sap2010:WorkflowViewState.IdRef="If_5">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="476,171" sap2010:WorkflowViewState.IdRef="Sequence_76">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign Already Invoiced Count + 1" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_71">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfAlreadyInvoiced]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfAlreadyInvoiced + 1]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_77">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Sequence DisplayName="Sequence for Not In Alvis" sap:VirtualizedContainerService.HintSize="572,793" sap2010:WorkflowViewState.IdRef="Sequence_105">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeCode ContinueOnError="{x:Null}" Code="FilteredQueueItems = QueueItems.Where(Function(i) i.Status = QueueItemStatus.Failed AndAlso i.ProcessingException.Type.Equals(ProcessingExceptionType.BusinessException) AndAlso i.ProcessingException.Reason.Equals(StatusName)).GroupBy(Function(i) i.Reference).Select(Function(i) i.First)" DisplayName="Get Not In Alvis" sap:VirtualizedContainerService.HintSize="510,165" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+        <ui:InvokeCode.Arguments>
+          <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="QueueItems">[FoundQueueItems]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="StatusName">[StatusNameNotInAlvis]</InArgument>
+          <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="FilteredQueueItems">[QueueItemsNotInAlvis]</OutArgument>
+        </ui:InvokeCode.Arguments>
+      </ui:InvokeCode>
+      <Assign DisplayName="Assign Not In Alvis Number" sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="Assign_88">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfNotInAlvis]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[QueueItemsNotInAlvis.Count]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <If Condition="[in_CurrentItemIsNotInAlvis]" DisplayName="If Current Item Is Not In Alvis" sap:VirtualizedContainerService.HintSize="510,354" sap2010:WorkflowViewState.IdRef="If_8">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="476,171" sap2010:WorkflowViewState.IdRef="Sequence_86">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign Not In Alvis Count + 1" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_81">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfNotInAlvis]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[QueueItemsNumberOfNotInAlvis + 1]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_87">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Sequence DisplayName="Sequence for Wrong Grade" sap:VirtualizedContainerService.HintSize="572,793" sap2010:WorkflowViewState.IdRef="Sequence_106">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeCode ContinueOnError="{x:Null}" Code="FilteredQueueItems = QueueItems.Where(Function(i) i.Status = QueueItemStatus.Failed AndAlso i.ProcessingException.Type.Equals(ProcessingExceptionType.BusinessException) AndAlso i.ProcessingException.Reason.Equals(StatusName)).GroupBy(Function(i) i.Reference).Select(Function(i) i.First)" DisplayName="Get Wrong Grade" sap:VirtualizedContainerService.HintSize="510,165" sap2010:WorkflowViewState.IdRef="InvokeCode_4">
+        <ui:InvokeCode.Arguments>
+          <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="QueueItems">[FoundQueueItems]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="StatusName">[in_StatusNameWrongGrade]</InArgument>
+          <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="FilteredQueueItems">[QueueItemsWrongGrade]</OutArgument>
+        </ui:InvokeCode.Arguments>
+      </ui:InvokeCode>
+      <Assign DisplayName="Assign Wrong Grade Number" sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="Assign_89">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[out_QueueItemsNumberOfWrongGrade]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[QueueItemsWrongGrade.Count]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <If Condition="[in_CurrentItemIsWrongGrade]" DisplayName="If Current Item Is Wrong Grade" sap:VirtualizedContainerService.HintSize="510,354" sap2010:WorkflowViewState.IdRef="If_9">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="476,171" sap2010:WorkflowViewState.IdRef="Sequence_88">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign Wrong Grade Count + 1" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_84">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[out_QueueItemsNumberOfWrongGrade]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[out_QueueItemsNumberOfWrongGrade + 1]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap:VirtualizedContainerService.HintSize="450,103" sap2010:WorkflowViewState.IdRef="Sequence_89">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Sequence DisplayName="Sequence for Is Not Part Of Municipality" sap:VirtualizedContainerService.HintSize="572,793" sap2010:WorkflowViewState.IdRef="Sequence_109">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeCode ContinueOnError="{x:Null}" Code="FilteredQueueItems = QueueItems.Where(Function(i) i.Status = QueueItemStatus.Failed AndAlso i.ProcessingException.Type.Equals(ProcessingExceptionType.BusinessException) AndAlso i.ProcessingException.Reason.Equals(StatusName)).GroupBy(Function(i) i.Reference).Select(Function(i) i.First)" DisplayName="Get Is Not part Of Municipality" sap:VirtualizedContainerService.HintSize="510,165" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
+        <ui:InvokeCode.Arguments>
+          <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="QueueItems">[FoundQueueItems]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="StatusName">[in_StatusNameIsNotPartOfMunicipality]</InArgument>
+          <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="FilteredQueueItems">[QueueItemsIsNotPartOfMunicipality]</OutArgument>
+        </ui:InvokeCode.Arguments>
+      </ui:InvokeCode>
+      <Assign DisplayName="Assign Not part of Municipality" sap:VirtualizedContainerService.HintSize="510,83" sap2010:WorkflowViewState.IdRef="Assign_94">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[out_QueueItemsNumberIsNotPartOfMunicipality]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">[QueueItemsIsNotPartOfMunicipality.Count]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <If Condition="[in_CurrentItemIsNotPartOfMunicipality]" DisplayName="If Current Item Is Not Part Of Municipality" sap:VirtualizedContainerService.HintSize="510,354" sap2010:WorkflowViewState.IdRef="If_11">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="476,171" sap2010:WorkflowViewState.IdRef="Sequence_107">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign Not Part Of Municipality Count + 1" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_95">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[out_QueueItemsNumberIsNotPartOfMunicipality]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[out_QueueItemsNumberIsNotPartOfMunicipality + 1]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_108">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
+    <Assign DisplayName="Assign BREItems" sap:VirtualizedContainerService.HintSize="572,83" sap2010:WorkflowViewState.IdRef="Assign_69">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">[BREItems]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:IEnumerable(x:String)">[QueueItemsBRE.Select(function(i) i.ProcessingException.Details)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[in_CurrentItemIsBRE]" DisplayName="If Curret Item Is BRE" sap:VirtualizedContainerService.HintSize="572,354" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="476,171" sap2010:WorkflowViewState.IdRef="Sequence_72">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign Current Items BRE Description" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_70">
+            <Assign.To>
+              <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">[BREItems]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="scg:IEnumerable(x:String)">[BREItems.Concat({in_CurrentItemsBREDescription})]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_73">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <Assign DisplayName="Assign All Count" sap:VirtualizedContainerService.HintSize="572,83" sap2010:WorkflowViewState.IdRef="Assign_63">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[QueueItemsTotalNumber]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[QueueItemsNew.Concat(QueueItemsSuccessful).Concat(QueueItemsBRE).Concat(QueueItemsSE).Select(function(i) i.Reference).Cast(of String).ToList().Distinct().Count + 1]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>
