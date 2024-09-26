@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2752,864</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1872,864</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -138,7 +138,7 @@
       <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="703,799" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Kontroll av hemtjänsttimmar]&#xA;[Kontrollerar hemtjänsttimmar ]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="703,799" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -281,9 +281,6 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
                     <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="500,726" sap2010:WorkflowViewState.IdRef="Sequence_28">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="scg:List(x:String)" Name="MarkRowInExcelListEjdef" />
-                      </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -299,36 +296,16 @@
                       </Assign>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="438,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\Process.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                            <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="TransactionItem" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                          </InArgument>
-                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_AddToExcelFile">
-                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_AddToExcelFile" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_Insatser">
-                            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_Insatser" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_MarkRowInExcelList">
-                            <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="MarkRowInExcelList" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="io_ResursDictionary">
-                            <VisualBasicReference x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="ResursDictionary" />
-                          </InOutArgument>
-                          <InArgument x:TypeArguments="x:Boolean" x:Key="In_SkipColorInFile">
-                            <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_SkipColorInFile" />
-                          </InArgument>
-                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_PersonsTotalCheckOverDue">
-                            <VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="PersonsTotalCheckOverDue" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_MarkRowInExcelListEjdef">
-                            <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="MarkRowInExcelListEjdef" />
-                          </InOutArgument>
-                          <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_MarkRowInExcelListYellow">
-                            <VisualBasicReference x:TypeArguments="scg:List(x:String)" ExpressionText="MarkRowInExcelListYellow" />
-                          </InOutArgument>
+                          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_AddToExcelFile">[dt_AddToExcelFile]</InOutArgument>
+                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_Insatser">[dt_Insatser]</InOutArgument>
+                          <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_MarkRowInExcelList">[MarkRowInExcelList]</InOutArgument>
+                          <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="io_ResursDictionary">[ResursDictionary]</InOutArgument>
+                          <InArgument x:TypeArguments="x:Boolean" x:Key="In_SkipColorInFile">[in_SkipColorInFile]</InArgument>
+                          <InOutArgument x:TypeArguments="x:Int32" x:Key="io_PersonsTotalCheckOverDue">[PersonsTotalCheckOverDue]</InOutArgument>
+                          <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_MarkRowInExcelListEjdef">[MarkRowInExcelListEjdef]</InOutArgument>
+                          <InOutArgument x:TypeArguments="scg:List(x:String)" x:Key="io_MarkRowInExcelListYellow">[MarkRowInExcelListYellow]</InOutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <TryCatch DisplayName="Try Catch Set Transaction Status (Success)" sap:VirtualizedContainerService.HintSize="438,341" sap2010:WorkflowViewState.IdRef="TryCatch_10">
@@ -963,6 +940,7 @@
       <Variable x:TypeArguments="scg:List(x:String)" Name="MarkRowInExcelListYellow" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="ResursDictionary" />
       <Variable x:TypeArguments="x:Int32" Name="PersonsTotalCheckOverDue" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="MarkRowInExcelListEjdef" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>

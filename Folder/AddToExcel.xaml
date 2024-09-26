@@ -14,7 +14,7 @@
   <this:AddToExcel.in_ExcelPassword>
     <InArgument x:TypeArguments="x:String" />
   </this:AddToExcel.in_ExcelPassword>
-  <sap:VirtualizedContainerService.HintSize>1343,3472</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1163,3512</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -196,7 +196,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:FilterDataTable DataTable="[in_dt_AddToExcelFile]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="744,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[in_dt_AddToExcelFile]" SelectColumnsMode="Keep">
+    <ui:FilterDataTable DataTable="[in_dt_AddToExcelFile]" DisplayName="Private: Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="744,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[in_dt_AddToExcelFile]" SelectColumnsMode="Keep">
       <ui:FilterDataTable.Filters>
         <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
           <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -217,7 +217,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:FilterDataTable>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_AddToExcelFile]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="744,580" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[in_dt_AddToExcelFile]" DisplayName="Private: For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="744,580" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
@@ -315,7 +315,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:WriteRange AddHeaders="True" DataTable="[in_dt_AddToExcelFile]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" Password="[in_ExcelPassword]" SheetName="[SheetName]" StartingCell="AF1" WorkbookPath="[CurrentFile.FullName]" />
+                          <ui:WriteRange AddHeaders="True" DataTable="[in_dt_AddToExcelFile]" DisplayName="Private: Write Range Workbook" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" Password="[in_ExcelPassword]" SheetName="[SheetName]" StartingCell="AF1" WorkbookPath="[CurrentFile.FullName]" />
                           <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_40">
                             <Assign.To>
                               <OutArgument x:TypeArguments="scg:List(x:String)">[in_MarkRowInExcelList]</OutArgument>
