@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetTransactionDataTestCase" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1498,1710" sap2010:WorkflowViewState.IdRef="GetTransactionDataTestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetTransactionDataTestCase" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1163,1710" sap2010:WorkflowViewState.IdRef="GetTransactionDataTestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="58">
       <x:String>Microsoft.VisualBasic</x:String>
@@ -96,7 +96,7 @@
   <Sequence sap2010:Annotation.AnnotationText="Given the TransactionNumber, verify if GetTransactionData workflow works as expected.&#xA;Once a Transaction Item has been processed, its status will be In Progress.&#xA;Queue name should be configured in order for the test case to run." DisplayName="GetTransactionDataTestCase" sap:VirtualizedContainerService.HintSize="558,1645" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
-      <Variable x:TypeArguments="x:Int32" Default="1" Name="TransactionNumber" />
+      <Variable x:TypeArguments="x:Int32" Name="TransactionNumber" />
       <Variable x:TypeArguments="ui:QueueItem" Name="TransactionItem" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_AddToExcelFile" />
     </Sequence.Variables>
@@ -141,22 +141,14 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetTransactionData workflow" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Framework/GetTransactionData.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">
-            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="TransactionNumber" />
-          </InArgument>
-          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-          </InArgument>
-          <OutArgument x:TypeArguments="ui:QueueItem" x:Key="out_TransactionItem">
-            <VisualBasicReference x:TypeArguments="ui:QueueItem" ExpressionText="TransactionItem" />
-          </OutArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">[TransactionNumber]</InArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+          <OutArgument x:TypeArguments="ui:QueueItem" x:Key="out_TransactionItem">[TransactionItem]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionField1" />
           <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionField2" />
           <OutArgument x:TypeArguments="x:String" x:Key="out_TransactionID" />
           <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_TransactionData" />
-          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_AddToExcelFile">
-            <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_AddToExcelFile" />
-          </InOutArgument>
+          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_AddToExcelFile">[dt_AddToExcelFile]</InOutArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
