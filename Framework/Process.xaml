@@ -23,7 +23,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1566,3409</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2434,3410</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -164,7 +164,7 @@
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1576,3344" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1576,3457" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ExcelFileProcessingSuffix" />
       <Variable x:TypeArguments="x:String" Name="ExcelFileFinishedSuffix" />
@@ -196,123 +196,6 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1514,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1514,52" sap2010:WorkflowViewState.IdRef="CommentOut_12">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="485,163" sap2010:WorkflowViewState.IdRef="Sequence_35">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:MultipleAssign DisplayName="Multiple Assign From Config File" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
-            <ui:MultipleAssign.AssignOperations>
-              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[ExcelFileProcessingSuffix]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Config("ProcessingSuffix").ToString]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[ExcelFileFinishedSuffix]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Config("ProcessedSuffix").ToString]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[FinishedExcelLogsFolderpath]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Config("ExcelFinishedFolderPath").ToString]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[ExcelPasswordCredential]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Config("ExcelPasswordCredential").ToString]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[MailEmailAddresses]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Config("MailAddresses").ToString]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:Int32">[MailServerPort]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(in_Config("MailServerPort").ToString)]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[MailServerAddress]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Config("MailServerAddress").ToString]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[MailSenderName]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Config("MailSenderName").ToString]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[MailSenderAddress]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Config("MailSenderAddress").ToString]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[MailSubject]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Config("MailSubject").ToString]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-                  <ui:AssignOperation.To>
-                    <OutArgument x:TypeArguments="x:String">[MailBodyText]</OutArgument>
-                  </ui:AssignOperation.To>
-                  <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">[in_Config("MailBody").ToString]</InArgument>
-                  </ui:AssignOperation.Value>
-                </ui:AssignOperation>
-              </scg:List>
-            </ui:MultipleAssign.AssignOperations>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:MultipleAssign>
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
     <ui:MultipleAssign DisplayName="Multiple Assign From Config File" sap:VirtualizedContainerService.HintSize="1514,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
@@ -365,7 +248,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:MultipleAssign DisplayName="Multiple Assign From Config File" sap:VirtualizedContainerService.HintSize="1514,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
+    <ui:MultipleAssign DisplayName="Multiple Assign From Config File" sap:VirtualizedContainerService.HintSize="1514,256" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_40">
@@ -416,25 +299,17 @@
               <InArgument x:TypeArguments="x:String">[in_Config("MailSubject").ToString]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_46">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[MailBodyText]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[in_Config("MailBody").ToString]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
     <ui:GetRobotCredential TimeoutMS="{x:Null}" Username="{x:Null}" AssetName="[in_Config(&quot;ExcelPassword&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="1514,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ExcelPasswordSecureString]" />
-    <Assign DisplayName="Private: Assign Excel Password" sap:VirtualizedContainerService.HintSize="1514,81" sap2010:WorkflowViewState.IdRef="Assign_421">
+    <Assign DisplayName="Private: Assign Excel Password" sap:VirtualizedContainerService.HintSize="1514,82" sap2010:WorkflowViewState.IdRef="Assign_421">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[ExcelPassword]</OutArgument>
       </Assign.To>
