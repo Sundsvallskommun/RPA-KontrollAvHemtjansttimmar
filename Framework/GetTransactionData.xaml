@@ -13,7 +13,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1794,1923</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1747,1908</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -139,7 +139,7 @@
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="696,1858" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="696,1843" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="OrchestratorFolderPath" />
       <Variable x:TypeArguments="x:String" Name="ExcelFolder" />
@@ -159,8 +159,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Get Transaction Item" sap:VirtualizedContainerService.HintSize="634,143" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get the transaction item&quot;]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" Username="{x:Null}" AssetName="[in_Config(&quot;ExcelPassword&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="634,144" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[ExcelPasswordSecureString]" />
+    <ui:LogMessage DisplayName="Log Message Get Transaction Item" sap:VirtualizedContainerService.HintSize="634,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Get the transaction item&quot;]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" Username="{x:Null}" AssetName="[in_Config(&quot;ExcelPassword&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="634,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[ExcelPasswordSecureString]" />
     <Assign DisplayName="Private: Assign Excel Password" sap:VirtualizedContainerService.HintSize="634,82" sap2010:WorkflowViewState.IdRef="Assign_54">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[ExcelPassword]</OutArgument>
@@ -169,7 +169,7 @@
         <InArgument x:TypeArguments="x:String">[new System.net.NetworkCredential("",ExcelPasswordSecureString).Password]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MultipleAssign DisplayName="Multiple Assign From Config File" sap:VirtualizedContainerService.HintSize="634,53" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign From Config File" sap:VirtualizedContainerService.HintSize="634,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
@@ -251,11 +251,11 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
-            <av:Size x:Key="ShapeSize">200,53</av:Size>
+            <av:Size x:Key="ShapeSize">200,52</av:Size>
             <av:PointCollection x:Key="ConnectorLocation">300,179.5 300,228.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:RetryScope DisplayName="Retry Get transaction item" sap:VirtualizedContainerService.HintSize="200,53" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="[Cint(in_Config(&quot;RetryNumberGetTransactionItem&quot;))]">
+        <ui:RetryScope DisplayName="Retry Get transaction item" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="[Cint(in_Config(&quot;RetryNumberGetTransactionItem&quot;))]">
           <ui:RetryScope.ActivityBody>
             <ActivityAction>
               <TryCatch DisplayName="Try Catch Get transaction item" sap:VirtualizedContainerService.HintSize="438,503" sap2010:WorkflowViewState.IdRef="TryCatch_3">
@@ -300,13 +300,13 @@
           </ui:RetryScope.Condition>
         </ui:RetryScope>
         <FlowStep.Next>
-          <FlowDecision x:Name="__ReferenceID1" Condition="[out_TransactionItem isNot Nothing]" DisplayName="Any Transaction Found?" sap:VirtualizedContainerService.HintSize="132,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+          <FlowDecision x:Name="__ReferenceID1" Condition="[out_TransactionItem isNot Nothing]" DisplayName="Any Transaction Found?" sap:VirtualizedContainerService.HintSize="133,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <av:Point x:Key="ShapeLocation">233.5,228.5</av:Point>
-                <av:Size x:Key="ShapeSize">132,87</av:Size>
-                <av:PointCollection x:Key="TrueConnector">233.5,272 203.5,272 203.5,400 200,400</av:PointCollection>
+                <av:Size x:Key="ShapeSize">133,87</av:Size>
+                <av:PointCollection x:Key="TrueConnector">233.5,272 203.5,272 203.5,397.5 200,397.5</av:PointCollection>
                 <av:PointCollection x:Key="FalseConnector">366.5,272 440,272 440,356.04</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -315,10 +315,10 @@
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <av:Point x:Key="ShapeLocation">0,328.5</av:Point>
-                    <av:Size x:Key="ShapeSize">200,143</av:Size>
+                    <av:Size x:Key="ShapeSize">200,138</av:Size>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap2010:Annotation.AnnotationText="Write data to the added log fields that identify the transaction." DisplayName="Add transaction information to log fields" sap:VirtualizedContainerService.HintSize="200,143" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                <Sequence sap2010:Annotation.AnnotationText="Write data to the added log fields that identify the transaction." DisplayName="Add transaction information to log fields" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="Sequence_43">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="FolderExists" />
                   </Sequence.Variables>
@@ -360,11 +360,11 @@
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <av:Point x:Key="ShapeLocation">340,356.04</av:Point>
-                    <av:Size x:Key="ShapeSize">200,83</av:Size>
-                    <av:PointCollection x:Key="ConnectorLocation">440,439.04 440,472.04</av:PointCollection>
+                    <av:Size x:Key="ShapeSize">200,81</av:Size>
+                    <av:PointCollection x:Key="ConnectorLocation">440,437.04 440,472.04</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Check If Any Excel File" sap:VirtualizedContainerService.HintSize="1020,5820.000000000001" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                <Sequence DisplayName="Check If Any Excel File" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_32">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="FolderExists" />
                     <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="temp" />
@@ -775,35 +775,17 @@
                                                         <InArgument x:TypeArguments="x:String">[System.IO.Path.GetFileName(RenamedExcelFile) + "-" + RowIndexItem.ToString +"-" + NrOfPeople.ToString]</InArgument>
                                                       </Assign.Value>
                                                     </Assign>
-                                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Try&#xD;&#xA;    ' Din ursprungliga kod&#xD;&#xA;    Dim insatsStr As String = InsatserNotToHandle.ToLower()&#xD;&#xA;&#xD;&#xA;    ' Dela upp strängen i en array baserat på semikolon&#xD;&#xA;    Dim insatser As String() = insatsStr.Split(&quot;;&quot;c)&#xD;&#xA;&#xD;&#xA;    ' Hämta värdet från datatabellen för den aktuella raden&#xD;&#xA;    Dim insatsFromRow As String = dt_OrgExcelFile.Rows(RowIndexItem)(&quot;INSATS&quot;).ToString().ToLower()&#xD;&#xA;    &#xD;&#xA;    ' Variabel för att hålla reda på om något matchar&#xD;&#xA;    Dim matchFound As Boolean = False&#xD;&#xA;&#xD;&#xA;    ' Loopa genom varje insats i arrayen och kolla om den finns i cellens värde&#xD;&#xA;    For Each insats As String In insatser&#xD;&#xA;        If insatsFromRow Is Nothing OrElse String.IsNullOrEmpty(insatsFromRow) OrElse _&#xD;&#xA;           insatsFromRow.Equals(insats) OrElse insatsFromRow.StartsWith(insats) Then&#xD;&#xA;            matchFound = True&#xD;&#xA;            Exit For ' Avsluta loopen om vi hittar en matchning&#xD;&#xA;        End If&#xD;&#xA;    Next&#xD;&#xA;&#xD;&#xA;    ' Om ingen matchning hittades i insatser, kolla i dt_Insatser&#xD;&#xA;    If Not matchFound Then&#xD;&#xA;        For Each row As DataRow In dt_Insatser.Rows&#xD;&#xA;            Dim insatsValue As String = row(&quot;Insats i Procapita&quot;).ToString().ToLower()&#xD;&#xA;&#xD;&#xA;            ' Kontrollera om insatsFromRow matchar något i kolumnen &quot;Insats i Procapita&quot;&#xD;&#xA;            If insatsValue.Equals(insatsFromRow) AndAlso _&#xD;&#xA;               insatsValue IsNot Nothing AndAlso insatsFromRow IsNot Nothing Then&#xD;&#xA;                matchFound = False&#xD;&#xA;                Exit For ' Avsluta loopen om en matchning hittas&#xD;&#xA;&#x9;&#x9;&#x9;Else&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;matchFound = True&#xD;&#xA;            End If&#xD;&#xA;        Next&#xD;&#xA;    End If&#xD;&#xA;&#xD;&#xA;    ' Kontrollera om vi hittade en matchning&#xD;&#xA;    If matchFound Then&#xD;&#xA;        ' Gör något om en matchning hittades&#xD;&#xA;        dt_HanteraEj.Rows(CInt(RowIndexItem))(&quot;Hanteras ej&quot;) = &quot;Hanteras ej.&quot;&#xD;&#xA;    Else&#xD;&#xA;        ' Lägg till rad i kö (Queue) med relevant information om ingen matchning hittades&#xD;&#xA;        UploadToQueue = True&#xD;&#xA;    End If&#xD;&#xA;&#xD;&#xA;Catch ex As Exception&#xD;&#xA;    ' Logga undantaget för att se exakt vad som orsakar felet&#xD;&#xA;    Console.WriteLine(&quot;Fel: &quot; &amp; ex.Message)&#xD;&#xA;    Console.WriteLine(&quot;Stack Trace: &quot; &amp; ex.StackTrace)&#xD;&#xA;End Try&#xD;&#xA;" DisplayName="Private: Remove Insatser Not to handle" sap:VirtualizedContainerService.HintSize="510,165" sap2010:WorkflowViewState.IdRef="InvokeCode_6">
+                                                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Try&#xA;    ' Din ursprungliga kod&#xA;    Dim insatsStr As String = InsatserNotToHandle.ToLower()&#xA;&#xA;    ' Dela upp strängen i en array baserat på semikolon&#xA;    Dim insatser As String() = insatsStr.Split(&quot;;&quot;c)&#xA;&#xA;    ' Hämta värdet från datatabellen för den aktuella raden&#xA;    Dim insatsFromRow As String = dt_OrgExcelFile.Rows(RowIndexItem)(&quot;INSATS&quot;).ToString().ToLower()&#xA;    &#xA;    ' Variabel för att hålla reda på om något matchar&#xA;    Dim matchFound As Boolean = False&#xA;&#xA;    ' Loopa genom varje insats i arrayen och kolla om den finns i cellens värde&#xA;    For Each insats As String In insatser&#xA;        If insatsFromRow Is Nothing OrElse String.IsNullOrEmpty(insatsFromRow) OrElse _&#xA;           insatsFromRow.Equals(insats) OrElse insatsFromRow.StartsWith(insats) Then&#xA;            matchFound = True&#xA;            Exit For ' Avsluta loopen om vi hittar en matchning&#xA;        End If&#xA;    Next&#xA;&#xA;    ' Om ingen matchning hittades i insatser, kolla i dt_Insatser&#xA;    If Not matchFound Then&#xA;        For Each row As DataRow In dt_Insatser.Rows&#xA;            Dim insatsValue As String = row(&quot;Insats i Procapita&quot;).ToString().ToLower()&#xA;&#xA;            ' Kontrollera om insatsFromRow matchar något i kolumnen &quot;Insats i Procapita&quot;&#xA;            If insatsValue.Equals(insatsFromRow) AndAlso _&#xA;               insatsValue IsNot Nothing AndAlso insatsFromRow IsNot Nothing Then&#xA;                matchFound = False&#xA;                Exit For ' Avsluta loopen om en matchning hittas&#xA;&#x9;&#x9;&#x9;Else&#xA;&#x9;&#x9;&#x9;&#x9;matchFound = True&#xA;            End If&#xA;        Next&#xA;    End If&#xA;&#xA;    ' Kontrollera om vi hittade en matchning&#xA;    If matchFound Then&#xA;        ' Gör något om en matchning hittades&#xA;        dt_HanteraEj.Rows(CInt(RowIndexItem))(&quot;Hanteras ej&quot;) = &quot;Hanteras ej.&quot;&#xA;    Else&#xA;        ' Lägg till rad i kö (Queue) med relevant information om ingen matchning hittades&#xA;        UploadToQueue = True&#xA;    End If&#xA;&#xA;Catch ex As Exception&#xA;    ' Logga undantaget för att se exakt vad som orsakar felet&#xA;    Console.WriteLine(&quot;Fel: &quot; &amp; ex.Message)&#xA;    Console.WriteLine(&quot;Stack Trace: &quot; &amp; ex.StackTrace)&#xA;End Try&#xA;" DisplayName="Private: Remove Insatser Not to handle" sap:VirtualizedContainerService.HintSize="510,165" sap2010:WorkflowViewState.IdRef="InvokeCode_6">
                                                       <ui:InvokeCode.Arguments>
-                                                        <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_OrgExcelFile">
-                                                          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_OrgExcelFile" />
-                                                        </InArgument>
-                                                        <InArgument x:TypeArguments="x:String" x:Key="InsatserNotToHandle">
-                                                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="InsatserNotToHandle" />
-                                                        </InArgument>
-                                                        <InArgument x:TypeArguments="x:Int32" x:Key="RowIndexItem">
-                                                          <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="CInt(RowIndexItem)" />
-                                                        </InArgument>
-                                                        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_HanteraEj">
-                                                          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_HanteraEj" />
-                                                        </InOutArgument>
-                                                        <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_UploadQueue">
-                                                          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_UploadQueue" />
-                                                        </InArgument>
-                                                        <InArgument x:TypeArguments="x:String" x:Key="RefName">
-                                                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="RefName" />
-                                                        </InArgument>
-                                                        <InArgument x:TypeArguments="x:Int32" x:Key="TotRowNumber">
-                                                          <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="TotRowNumber" />
-                                                        </InArgument>
-                                                        <OutArgument x:TypeArguments="x:Boolean" x:Key="UploadToQueue">
-                                                          <VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="UploadToQueue" />
-                                                        </OutArgument>
-                                                        <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_Insatser">
-                                                          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_Insatser" />
-                                                        </InArgument>
+                                                        <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_OrgExcelFile">[dt_OrgExcelFile]</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="InsatserNotToHandle">[InsatserNotToHandle]</InArgument>
+                                                        <InArgument x:TypeArguments="x:Int32" x:Key="RowIndexItem">[CInt(RowIndexItem)]</InArgument>
+                                                        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_HanteraEj">[dt_HanteraEj]</InOutArgument>
+                                                        <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_UploadQueue">[dt_UploadQueue]</InArgument>
+                                                        <InArgument x:TypeArguments="x:String" x:Key="RefName">[RefName]</InArgument>
+                                                        <InArgument x:TypeArguments="x:Int32" x:Key="TotRowNumber">[TotRowNumber]</InArgument>
+                                                        <OutArgument x:TypeArguments="x:Boolean" x:Key="UploadToQueue">[UploadToQueue]</OutArgument>
+                                                        <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_Insatser">[in_dt_Insatser]</InArgument>
                                                       </ui:InvokeCode.Arguments>
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
