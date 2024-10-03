@@ -24,7 +24,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1747,3521</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1747,3358</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -165,7 +165,7 @@
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1576,3456" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1576,3253" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="ExcelFileProcessingSuffix" />
       <Variable x:TypeArguments="x:String" Name="ExcelFileFinishedSuffix" />
@@ -249,7 +249,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:MultipleAssign DisplayName="Multiple Assign From Config File" sap:VirtualizedContainerService.HintSize="1514,256" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
+    <ui:MultipleAssign DisplayName="Multiple Assign From Config File" sap:VirtualizedContainerService.HintSize="1514,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_40">
@@ -304,13 +304,13 @@
       </ui:MultipleAssign.AssignOperations>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
     <ui:GetRobotCredential TimeoutMS="{x:Null}" Username="{x:Null}" AssetName="[in_Config(&quot;ExcelPassword&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="1514,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ExcelPasswordSecureString]" />
-    <Assign DisplayName="Private: Assign Excel Password" sap:VirtualizedContainerService.HintSize="1514,81" sap2010:WorkflowViewState.IdRef="Assign_421">
+    <Assign DisplayName="Private: Assign Excel Password" sap:VirtualizedContainerService.HintSize="1514,82" sap2010:WorkflowViewState.IdRef="Assign_421">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[ExcelPassword]</OutArgument>
       </Assign.To>
@@ -635,7 +635,7 @@
                                                 <av:Size x:Key="ShapeSize">200,81</av:Size>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence DisplayName="Check if ok or throw" sap:VirtualizedContainerService.HintSize="648,2054" sap2010:WorkflowViewState.IdRef="Sequence_403">
+                                            <Sequence DisplayName="Check if ok or throw" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_403">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -3884,7 +3884,7 @@
                 <av:PointCollection x:Key="ConnectorLocation">550,290.5 550,320.5 547.5,320.5 547.5,338.5</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Init dt_AddToExcelFile" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_260">
+            <Sequence DisplayName="Init dt_AddToExcelFile" sap:VirtualizedContainerService.HintSize="496,1731" sap2010:WorkflowViewState.IdRef="Sequence_260">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sc1:IEnumerable" Name="ColumnNames" />
                 <Variable x:TypeArguments="sd:DataTable" Name="dt_temp" />
@@ -3927,6 +3927,7 @@
                 <ui:FilterDataTable.SelectColumns>
                   <scg:List x:TypeArguments="InArgument" Capacity="4">
                     <InArgument x:TypeArguments="x:String">["HANTERAS EJ"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["KVANTITET"]</InArgument>
                   </scg:List>
                 </ui:FilterDataTable.SelectColumns>
                 <sap:WorkflowViewStateService.ViewState>
@@ -4118,7 +4119,7 @@
                     <av:PointCollection x:Key="ConnectorLocation">647.5,379 677.5,379 677.5,326.5 783.5,326.5 783.5,356.5</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Duplicates and Total hours" sap:VirtualizedContainerService.HintSize="594,1834" sap2010:WorkflowViewState.IdRef="Sequence_337">
+                <Sequence DisplayName="Duplicates and Total hours" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_337">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Double" Name="TempResurs" />
                     <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="TempListOfQueueItems" />
