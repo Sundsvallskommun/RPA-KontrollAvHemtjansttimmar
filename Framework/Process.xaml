@@ -24,7 +24,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1747,3358</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1566,3318</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -343,7 +343,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Reference>__ReferenceID21</x:Reference>
+        <x:Reference>__ReferenceID20</x:Reference>
       </Flowchart.StartNode>
       <FlowDecision x:Name="__ReferenceID13" Condition="[Not String.IsNullOrEmpty(Kvantitet)]" DisplayName="Kvantitet isNotNull" sap:VirtualizedContainerService.HintSize="106,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
         <sap:WorkflowViewStateService.ViewState>
@@ -355,7 +355,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <FlowDecision.True>
-          <FlowStep x:Name="__ReferenceID19">
+          <FlowStep x:Name="__ReferenceID18">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <av:Point x:Key="ShapeLocation">710,538.5</av:Point>
@@ -628,7 +628,7 @@
                                           </If>
                                         </Sequence>
                                         <FlowStep.Next>
-                                          <FlowStep x:Name="__ReferenceID20">
+                                          <FlowStep x:Name="__ReferenceID19">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <av:Point x:Key="ShapeLocation">720,1619.5</av:Point>
@@ -1206,7 +1206,7 @@
                                   </FlowStep>
                                 </FlowDecision.True>
                                 <FlowDecision.False>
-                                  <FlowStep x:Name="__ReferenceID17">
+                                  <FlowStep x:Name="__ReferenceID16">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">190,1258.5</av:Point>
@@ -3865,7 +3865,7 @@
       <x:Reference>__ReferenceID10</x:Reference>
       <x:Reference>__ReferenceID11</x:Reference>
       <x:Reference>__ReferenceID12</x:Reference>
-      <FlowDecision x:Name="__ReferenceID21" Condition="[in_TransactionNumber.Equals(1) OrElse in_NewFile]" DisplayName="First Item?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_17">
+      <FlowDecision x:Name="__ReferenceID20" Condition="[in_TransactionNumber.Equals(1) OrElse in_NewFile]" DisplayName="First Item?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_17">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -3884,7 +3884,7 @@
                 <av:PointCollection x:Key="ConnectorLocation">550,290.5 550,320.5 547.5,320.5 547.5,338.5</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Init dt_AddToExcelFile" sap:VirtualizedContainerService.HintSize="496,1731" sap2010:WorkflowViewState.IdRef="Sequence_260">
+            <Sequence DisplayName="Init dt_AddToExcelFile" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_260">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sc1:IEnumerable" Name="ColumnNames" />
                 <Variable x:TypeArguments="sd:DataTable" Name="dt_temp" />
@@ -4111,7 +4111,7 @@
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_89" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;dt_AddToExcelFile created&quot;]" />
             </Sequence>
             <FlowStep.Next>
-              <FlowStep x:Name="__ReferenceID16">
+              <FlowStep x:Name="__ReferenceID15">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <av:Point x:Key="ShapeLocation">447.5,338.5</av:Point>
@@ -4616,10 +4616,10 @@
         </FlowDecision.False>
       </FlowDecision>
       <x:Reference>__ReferenceID14</x:Reference>
-      <FlowStep x:Name="__ReferenceID15">
+      <FlowStep>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">600,2059.5</av:Point>
+            <av:Point x:Key="ShapeLocation">120,1499.5</av:Point>
             <av:Size x:Key="ShapeSize">200,81</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -5057,25 +5057,24 @@ NrOfOverInsats.ToString() + " antal rader med överstigande tid per insats och "
           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="558,141" sap2010:WorkflowViewState.IdRef="LogMessage_113" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Antal personer som har med än 110 servivetimmar totalt: &quot; + io_PersonsTotalCheckOverDue.ToString]" />
         </Sequence>
       </FlowStep>
-      <FlowDecision x:Name="__ReferenceID18" Condition="[TempTest.Count.Equals(0)]" DisplayName="Last Row?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_18" True="{x:Reference __ReferenceID15}">
+      <FlowDecision x:Name="__ReferenceID17" Condition="[TempTest.Count.Equals(0)]" DisplayName="Last Row?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_18">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <av:Point x:Key="ShapeLocation">785,1956.5</av:Point>
+            <av:Point x:Key="ShapeLocation">775,1866.5</av:Point>
             <av:Size x:Key="ShapeSize">70,87</av:Size>
             <av:PointCollection x:Key="FalseConnector">1099.5,130 1150,130 1150,413.5</av:PointCollection>
-            <av:PointCollection x:Key="TrueConnector">785,2000 700,2000 700,2059.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </FlowDecision>
+      <x:Reference>__ReferenceID15</x:Reference>
       <x:Reference>__ReferenceID16</x:Reference>
-      <x:Reference>__ReferenceID17</x:Reference>
       <FlowStep>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">710,1834</av:Point>
+            <av:Point x:Key="ShapeLocation">140,1674</av:Point>
             <av:Size x:Key="ShapeSize">200,52</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">810,1886 810,1916 820,1916 820,1956.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">240,1726 240,1756 810,1756 810,1866.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="GetQueueItems_14" QueueItemStates="New" QueueName="[QueueName]" Reference="[ExcelFileName]" Result="[TempTest]">
@@ -5086,7 +5085,7 @@ NrOfOverInsats.ToString() + " antal rader med överstigande tid per insats och "
           </sap:WorkflowViewStateService.ViewState>
         </ui:GetQueueItems>
         <FlowStep.Next>
-          <x:Reference>__ReferenceID18</x:Reference>
+          <x:Reference>__ReferenceID17</x:Reference>
         </FlowStep.Next>
       </FlowStep>
       <FlowDecision Condition="[in_TransactionItem.SpecificContent(&quot;TotRowNumber&quot;).Equals(in_TransactionItem.SpecificContent(&quot;RowIndex&quot;))]" DisplayName="Last Row?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_19">
@@ -5100,7 +5099,7 @@ NrOfOverInsats.ToString() + " antal rader med överstigande tid per insats och "
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </FlowDecision>
-      <x:Reference>__ReferenceID19</x:Reference>
+      <x:Reference>__ReferenceID18</x:Reference>
       <FlowDecision Condition="[io_dt_AddToExcelFile Is Nothing OrElse io_dt_AddToExcelFile.Rows.Count = 0]" DisplayName="First Item?" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowDecision_20">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -5112,7 +5111,7 @@ NrOfOverInsats.ToString() + " antal rader med överstigande tid per insats och "
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </FlowDecision>
-      <x:Reference>__ReferenceID20</x:Reference>
+      <x:Reference>__ReferenceID19</x:Reference>
       <FlowStep>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
