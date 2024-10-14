@@ -7,7 +7,7 @@
     <x:Property Name="out_MarkRowInExcelListYellow" Type="OutArgument(scg:List(x:String))" />
     <x:Property Name="io_PersonsTotalCheckOverDue" Type="InOutArgument(x:Int32)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>2128,1706</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1636,1668</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -119,7 +119,7 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="588,1601" sap2010:WorkflowViewState.IdRef="Sequence_67">
+  <Sequence sap:VirtualizedContainerService.HintSize="588,1603" sap2010:WorkflowViewState.IdRef="Sequence_67">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(ui:QueueItem)" Name="DistinctQueueItems" />
     </Sequence.Variables>
@@ -128,7 +128,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Get ListDistinct" sap:VirtualizedContainerService.HintSize="526,83" sap2010:WorkflowViewState.IdRef="Assign_34">
+    <Assign DisplayName="Get ListDistinct" sap:VirtualizedContainerService.HintSize="526,85" sap2010:WorkflowViewState.IdRef="Assign_34">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(ui:QueueItem)">[DistinctQueueItems]</OutArgument>
       </Assign.To>
@@ -145,7 +145,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign DisplayName="Get ListDistinct" sap:VirtualizedContainerService.HintSize="526,83" sap2010:WorkflowViewState.IdRef="Assign_72">
+    <Assign DisplayName="Get ListDistinct" sap:VirtualizedContainerService.HintSize="526,85" sap2010:WorkflowViewState.IdRef="Assign_72">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(ui:QueueItem)">[DistinctQueueItems]</OutArgument>
       </Assign.To>
@@ -179,13 +179,13 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_100">
+              <Sequence sap:VirtualizedContainerService.HintSize="476,169" sap2010:WorkflowViewState.IdRef="Sequence_100">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="Init out_MarkRowInExcelListYellow" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_60">
+                <Assign DisplayName="Init out_MarkRowInExcelListYellow" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_60">
                   <Assign.To>
                     <OutArgument x:TypeArguments="scg:List(x:String)">[out_MarkRowInExcelListYellow]</OutArgument>
                   </Assign.To>
@@ -236,13 +236,13 @@
         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_103" />
       </If.Else>
     </If>
-    <ui:ForEach x:TypeArguments="ui:QueueItem" sap2010:Annotation.AnnotationText="Går igenom och kollar efter dubletter för varje person." DisplayName="For Each DistinctQueueItems" sap:VirtualizedContainerService.HintSize="526,813" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[DistinctQueueItems]">
+    <ui:ForEach x:TypeArguments="ui:QueueItem" sap2010:Annotation.AnnotationText="Går igenom och kollar efter dubletter för varje person." DisplayName="For Each DistinctQueueItems" sap:VirtualizedContainerService.HintSize="526,811" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[DistinctQueueItems]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="ui:QueueItem">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:QueueItem" Name="currentItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="492,596" sap2010:WorkflowViewState.IdRef="Sequence_61">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="492,594" sap2010:WorkflowViewState.IdRef="Sequence_61">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="tempList" />
               <Variable x:TypeArguments="x:String" Name="TempRow" />
@@ -254,7 +254,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Assign TempRow" sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_36">
+            <Assign DisplayName="Assign TempRow" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_36">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[TempRow]</OutArgument>
               </Assign.To>
@@ -262,7 +262,7 @@
                 <InArgument x:TypeArguments="x:String">[currentItem.SpecificContent("TempRow").ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign - All rows/queueItems for one person" sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_73">
+            <Assign DisplayName="Assign - All rows/queueItems for one person" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_73">
               <Assign.To>
                 <OutArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[tempList]</OutArgument>
               </Assign.To>
@@ -270,7 +270,7 @@
                 <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)">[in_QueueItems.Where(Function(item) item.SpecificContent("TempRow").ToString().Equals(TempRow)).ToList()]</InArgument>
               </Assign.Value>
             </Assign>
-            <Sequence sap2010:Annotation.AnnotationText="Räknar ihop totala summen för insater för EN person" DisplayName="TotalHours" sap:VirtualizedContainerService.HintSize="450,112" sap2010:WorkflowViewState.IdRef="Sequence_92">
+            <Sequence sap2010:Annotation.AnnotationText="Räknar ihop totala summen för insater för EN person" DisplayName="TotalHours" sap:VirtualizedContainerService.HintSize="572,1510" sap2010:WorkflowViewState.IdRef="Sequence_92">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -278,13 +278,13 @@
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEach x:TypeArguments="ui:QueueItem" DisplayName="Summera total hours per person" sap:VirtualizedContainerService.HintSize="510,509" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[tempList]">
+              <ui:ForEach x:TypeArguments="ui:QueueItem" DisplayName="Summera total hours per person" sap:VirtualizedContainerService.HintSize="510,508" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[tempList]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="ui:QueueItem">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="ui:QueueItem" Name="currentItem2" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,323" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,322" sap2010:WorkflowViewState.IdRef="Sequence_64">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:Double" Name="TempVal" />
                         <Variable x:TypeArguments="x:Double" Name="Temp" />
@@ -300,7 +300,7 @@
                           <OutArgument x:TypeArguments="x:Double" x:Key="out_TotalMinOfKvantitet">[TempVal]</OutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
-                      <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_41">
+                      <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_41">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Double">[TotalMinOfKvantitet]</OutArgument>
                         </Assign.To>
@@ -332,7 +332,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:LogMessage>
-              <Assign sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_38">
+              <Assign sap:VirtualizedContainerService.HintSize="510,81" sap2010:WorkflowViewState.IdRef="Assign_38">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[MaxMinFromInsatsdef]</OutArgument>
                 </Assign.To>
@@ -340,7 +340,7 @@
                   <InArgument x:TypeArguments="x:String">[in_dt_Insatser.AsEnumerable().Where(Function(row) row.Field(Of String)("Insats i Procapita") = "Total").Select(Function(row) row.Field(Of Object)("Insats i minuter per vecka")).FirstOrDefault().ToString()]</InArgument>
                 </Assign.Value>
               </Assign>
-              <If Condition="[TotalMinOfKvantitet &gt; CDbl(MaxMinFromInsatsdef)]" sap:VirtualizedContainerService.HintSize="510,608" sap2010:WorkflowViewState.IdRef="If_19">
+              <If Condition="[TotalMinOfKvantitet &gt; CDbl(MaxMinFromInsatsdef)]" sap:VirtualizedContainerService.HintSize="510,607" sap2010:WorkflowViewState.IdRef="If_19">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -348,7 +348,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="476,426" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                  <Sequence sap:VirtualizedContainerService.HintSize="476,425" sap2010:WorkflowViewState.IdRef="Sequence_65">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -362,7 +362,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:LogMessage>
-                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_67">
+                    <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_67">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[io_PersonsTotalCheckOverDue]</OutArgument>
                       </Assign.To>
@@ -376,7 +376,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:QueueItem" Name="currentItem4" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,468" sap2010:WorkflowViewState.IdRef="Sequence_93">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,382" sap2010:WorkflowViewState.IdRef="Sequence_93">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:String" Name="TempRowIndex" />
                             </Sequence.Variables>
@@ -385,7 +385,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign DisplayName="Update TempRow" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_57">
+                            <Assign DisplayName="Update TempRow" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_57">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Object">[io_dt_AddToExcelFile.Rows(CInt(currentItem4.SpecificContent("RowIndex").ToString()))("Totalt Överstig")]</OutArgument>
                               </Assign.To>
@@ -393,7 +393,7 @@
                                 <InArgument x:TypeArguments="x:Object">["Mer än 110h per månad"]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_59">
+                            <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_59">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[TempRowIndex]</OutArgument>
                               </Assign.To>
@@ -401,12 +401,29 @@
                                 <InArgument x:TypeArguments="x:String">[currentItem4.SpecificContent("RowIndex").ToString()]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <InvokeMethod DisplayName="Add Rowindex CurrentItem3" sap:VirtualizedContainerService.HintSize="434,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_10" MethodName="Add">
-                              <InvokeMethod.TargetObject>
-                                <InArgument x:TypeArguments="scg:List(x:String)">[out_MarkRowInExcelListYellow]</InArgument>
-                              </InvokeMethod.TargetObject>
-                              <InArgument x:TypeArguments="x:String">[currentItem4.SpecificContent("RowIndex").ToString]</InArgument>
-                            </InvokeMethod>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CommentOut_16">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,247" sap2010:WorkflowViewState.IdRef="Sequence_116">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <InvokeMethod DisplayName="Add Rowindex CurrentItem3" sap:VirtualizedContainerService.HintSize="388,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_10" MethodName="Add">
+                                    <InvokeMethod.TargetObject>
+                                      <InArgument x:TypeArguments="scg:List(x:String)">[out_MarkRowInExcelListYellow]</InArgument>
+                                    </InvokeMethod.TargetObject>
+                                    <InArgument x:TypeArguments="x:String">[currentItem4.SpecificContent("RowIndex").ToString]</InArgument>
+                                  </InvokeMethod>
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:CommentOut>
                           </Sequence>
                         </ActivityAction>
                       </ui:ForEach.Body>
@@ -447,19 +464,19 @@
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Går igenom listan för alla insaterna för EN person och gemför den med sig själv." DisplayName="For Each" sap:VirtualizedContainerService.HintSize="662,3165" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[tempList]">
+              <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Går igenom listan för alla insaterna för EN person och gemför den med sig själv." DisplayName="For Each" sap:VirtualizedContainerService.HintSize="662,3158" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[tempList]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="ui:QueueItem">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="ui:QueueItem" Name="currentItem3" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="628,2948" sap2010:WorkflowViewState.IdRef="Sequence_83">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="628,2941" sap2010:WorkflowViewState.IdRef="Sequence_83">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Assign TempInsats" sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_48">
+                      <Assign DisplayName="Assign TempInsats" sap:VirtualizedContainerService.HintSize="586,81" sap2010:WorkflowViewState.IdRef="Assign_48">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[TempInsats]</OutArgument>
                         </Assign.To>
@@ -469,7 +486,7 @@
                       </Assign>
                       <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="586,52" sap2010:WorkflowViewState.IdRef="CommentOut_13">
                         <ui:CommentOut.Body>
-                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,293" sap2010:WorkflowViewState.IdRef="Sequence_111">
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,163" sap2010:WorkflowViewState.IdRef="Sequence_111">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -512,7 +529,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:CommentOut>
-                      <If Condition="[System.Text.RegularExpressions.Regex.IsMatch(TempInsats, &quot;\b(hel|del)\b&quot;) = true]" DisplayName="If hel/del" sap:VirtualizedContainerService.HintSize="586,352" sap2010:WorkflowViewState.IdRef="If_32">
+                      <If Condition="[System.Text.RegularExpressions.Regex.IsMatch(TempInsats, &quot;\b(hel|del)\b&quot;) = true]" DisplayName="If hel/del" sap:VirtualizedContainerService.HintSize="586,351" sap2010:WorkflowViewState.IdRef="If_32">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -520,13 +537,13 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_112">
+                          <Sequence sap:VirtualizedContainerService.HintSize="476,169" sap2010:WorkflowViewState.IdRef="Sequence_112">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign DisplayName="Assign replace" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_70">
+                            <Assign DisplayName="Assign replace" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_70">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[TempInsats]</OutArgument>
                               </Assign.To>
@@ -540,7 +557,7 @@
                           <Sequence sap2010:WorkflowViewState.IdRef="Sequence_113" />
                         </If.Else>
                       </If>
-                      <Assign DisplayName="Assign TempRowIndex" sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_61">
+                      <Assign DisplayName="Assign TempRowIndex" sap:VirtualizedContainerService.HintSize="586,81" sap2010:WorkflowViewState.IdRef="Assign_61">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[TempRowIndex]</OutArgument>
                         </Assign.To>
@@ -550,13 +567,13 @@
                       </Assign>
                       <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="586,52" sap2010:WorkflowViewState.IdRef="CommentOut_11">
                         <ui:CommentOut.Body>
-                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_97">
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,192" sap2010:WorkflowViewState.IdRef="Sequence_97">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_50">
+                            <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_50">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:String">[TempRowIndex]</OutArgument>
                               </Assign.To>
@@ -573,19 +590,19 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:CommentOut>
-                      <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" DisplayName="For Each tempList" sap:VirtualizedContainerService.HintSize="586,2040" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[tempList]">
+                      <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" DisplayName="For Each tempList" sap:VirtualizedContainerService.HintSize="586,2036" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[tempList]">
                         <ui:ForEach.Body>
                           <ActivityAction x:TypeArguments="ui:QueueItem">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="ui:QueueItem" Name="currentItem5" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1854" sap2010:WorkflowViewState.IdRef="Sequence_85">
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1850" sap2010:WorkflowViewState.IdRef="Sequence_85">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Assign TempInsats5" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_71">
+                              <Assign DisplayName="Assign TempInsats5" sap:VirtualizedContainerService.HintSize="510,81" sap2010:WorkflowViewState.IdRef="Assign_71">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[TempInsats5]</OutArgument>
                                 </Assign.To>
@@ -593,7 +610,7 @@
                                   <InArgument x:TypeArguments="x:String">[currentItem5.SpecificContent("INSATS").ToString]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign DisplayName="Assign TempRowIndex5" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_51">
+                              <Assign DisplayName="Assign TempRowIndex5" sap:VirtualizedContainerService.HintSize="510,81" sap2010:WorkflowViewState.IdRef="Assign_51">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[TempRowIndex5]</OutArgument>
                                 </Assign.To>
@@ -601,7 +618,7 @@
                                   <InArgument x:TypeArguments="x:String">[currentItem5.SpecificContent("RowIndex").ToString]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <If Condition="[System.Text.RegularExpressions.Regex.IsMatch(TempInsats5, &quot;\b(hel|del)\b&quot;)]" DisplayName="If hel/del" sap:VirtualizedContainerService.HintSize="510,352" sap2010:WorkflowViewState.IdRef="If_29">
+                              <If Condition="[System.Text.RegularExpressions.Regex.IsMatch(TempInsats5, &quot;\b(hel|del)\b&quot;)]" DisplayName="If hel/del" sap:VirtualizedContainerService.HintSize="510,351" sap2010:WorkflowViewState.IdRef="If_29">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -609,13 +626,13 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_106">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="476,169" sap2010:WorkflowViewState.IdRef="Sequence_106">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Assign DisplayName="Assign replace" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_64">
+                                    <Assign DisplayName="Assign replace" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_64">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:String">[TempInsats5]</OutArgument>
                                       </Assign.To>
@@ -629,7 +646,7 @@
                                   <Sequence sap2010:WorkflowViewState.IdRef="Sequence_107" />
                                 </If.Else>
                               </If>
-                              <If Condition="[TempInsats.Equals(TempInsats5) AndAlso not TempRowIndex.Equals(TempRowIndex5)]" DisplayName="If Dubbel" sap:VirtualizedContainerService.HintSize="510,1130" sap2010:WorkflowViewState.IdRef="If_25">
+                              <If Condition="[TempInsats.Equals(TempInsats5) AndAlso not TempRowIndex.Equals(TempRowIndex5)]" DisplayName="If Dubbel" sap:VirtualizedContainerService.HintSize="510,1129" sap2010:WorkflowViewState.IdRef="If_25">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -637,7 +654,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <If.Then>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="476,948" sap2010:WorkflowViewState.IdRef="Sequence_88">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="476,947" sap2010:WorkflowViewState.IdRef="Sequence_88">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:Double" Name="TotalMinOfKvantitet" />
                                     </Sequence.Variables>
@@ -660,7 +677,7 @@
                                         <OutArgument x:TypeArguments="x:Double" x:Key="out_TotalMinOfKvantitet">[TotalMinOfKvantitet]</OutArgument>
                                       </ui:InvokeWorkflowFile.Arguments>
                                     </ui:InvokeWorkflowFile>
-                                    <Assign DisplayName="Update DubblettRow" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_52">
+                                    <Assign DisplayName="Update DubblettRow" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_52">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:Object">[io_dt_AddToExcelFile.Rows(CInt(currentItem5.SpecificContent("RowIndex")))("Dubbletter")]</OutArgument>
                                       </Assign.To>
@@ -670,13 +687,13 @@
                                     </Assign>
                                     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CommentOut_8">
                                       <ui:CommentOut.Body>
-                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_91">
+                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,192" sap2010:WorkflowViewState.IdRef="Sequence_91">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <Assign DisplayName="Update TempRow" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_55">
+                                          <Assign DisplayName="Update TempRow" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_55">
                                             <Assign.To>
                                               <OutArgument x:TypeArguments="x:Object">[io_dt_AddToExcelFile.Rows(CInt(currentItem5.SpecificContent("RowIndex"))+1)("Dubbletter")]</OutArgument>
                                             </Assign.To>
