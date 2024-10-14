@@ -24,7 +24,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1566,3318</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2080,3318</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -4119,7 +4119,7 @@
                     <av:PointCollection x:Key="ConnectorLocation">647.5,379 677.5,379 677.5,326.5 783.5,326.5 783.5,356.5</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Duplicates and Total hours" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_337">
+                <Sequence DisplayName="Duplicates and Total hours" sap:VirtualizedContainerService.HintSize="558,1283" sap2010:WorkflowViewState.IdRef="Sequence_337">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Double" Name="TempResurs" />
                     <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="TempListOfQueueItems" />
@@ -4130,7 +4130,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign DisplayName="Assign ExcelFileName1" sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_387">
+                  <Assign DisplayName="Assign ExcelFileName1" sap:VirtualizedContainerService.HintSize="496,82" sap2010:WorkflowViewState.IdRef="Assign_387">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[ExcelFileName]</OutArgument>
                     </Assign.To>
@@ -4138,7 +4138,7 @@
                       <InArgument x:TypeArguments="x:String">[in_TransactionItem.Reference.ToString]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign DisplayName="Update ExcelFileName" sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_388">
+                  <Assign DisplayName="Update ExcelFileName" sap:VirtualizedContainerService.HintSize="496,82" sap2010:WorkflowViewState.IdRef="Assign_388">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[ExcelFileName]</OutArgument>
                     </Assign.To>
@@ -4146,7 +4146,7 @@
                       <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(ExcelFileName, "^[^_]+").Value]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign DisplayName="Update ExcelFileName 2" sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_389">
+                  <Assign DisplayName="Update ExcelFileName 2" sap:VirtualizedContainerService.HintSize="496,82" sap2010:WorkflowViewState.IdRef="Assign_389">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[ExcelFileName]</OutArgument>
                     </Assign.To>
@@ -4154,7 +4154,7 @@
                       <InArgument x:TypeArguments="x:String">[ExcelFileName + ExcelFileProcessingSuffix + ".xlsx"]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign DisplayName="Update TempRow" sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_390">
+                  <Assign DisplayName="Update TempRow" sap:VirtualizedContainerService.HintSize="496,82" sap2010:WorkflowViewState.IdRef="Assign_390">
                     <Assign.To>
                       <OutArgument x:TypeArguments="scg:List(x:String)">[io_MarkRowInExcelList]</OutArgument>
                     </Assign.To>
@@ -4162,23 +4162,23 @@
                       <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[TempListOfQueueItems.Count.equals(100)]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="532,634" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Gets all queueitems " Condition="[TempListOfQueueItems.Count.equals(100)]" DisplayName="Do While - get all queueitems" sap:VirtualizedContainerService.HintSize="496,83" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
                     <ui:InterruptibleDoWhile.Body>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,468" sap2010:WorkflowViewState.IdRef="Sequence_443">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,377" sap2010:WorkflowViewState.IdRef="Sequence_443">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get All Queue Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="GetQueueItems_11" QueueItemStates="New, InProgress, Failed, Successful, Abandoned, Retried, Deleted" QueueName="[QueueName]" Reference="[ExcelFileName]" Result="[TempListOfQueueItems]" Skip="[CInt(NrToSkip)]">
+                        <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get All Queue Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="GetQueueItems_11" QueueItemStates="New, InProgress, Failed, Successful, Abandoned, Retried, Deleted" QueueName="[QueueName]" Reference="[ExcelFileName]" Result="[TempListOfQueueItems]" Skip="[CInt(NrToSkip)]">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:GetQueueItems>
-                        <If Condition="[QueueItems Is Nothing]" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="If_101">
+                        <If Condition="[QueueItems Is Nothing]" DisplayName="If list is empty" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="If_101">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -4232,12 +4232,13 @@
                     </ui:InterruptibleDoWhile.Body>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InterruptibleDoWhile>
-                  <Assign DisplayName="out_TotalNumberOfRows" sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_472">
+                  <Assign DisplayName="out_TotalNumberOfRows" sap:VirtualizedContainerService.HintSize="496,82" sap2010:WorkflowViewState.IdRef="Assign_472">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[io_TotalNumberOfRows]</OutArgument>
                     </Assign.To>
@@ -4245,7 +4246,7 @@
                       <InArgument x:TypeArguments="x:String">[QueueItems.Count.ToString]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PersonCheck.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="532,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="Folder\PersonCheck.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PersonCheck.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="496,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="Folder\PersonCheck.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="scg:IEnumerable(ui:QueueItem)" x:Key="in_QueueItems">[QueueItems]</InArgument>
                       <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Insatser">[io_dt_Insatser]</InArgument>
@@ -4255,7 +4256,7 @@
                       <InOutArgument x:TypeArguments="x:Int32" x:Key="io_PersonsTotalCheckOverDue">[io_PersonsTotalCheckOverDue]</InOutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <Sequence DisplayName="Check Leverantör" sap:VirtualizedContainerService.HintSize="532,286" sap2010:WorkflowViewState.IdRef="Sequence_332">
+                  <Sequence DisplayName="Sum Leverantör" sap:VirtualizedContainerService.HintSize="496,286" sap2010:WorkflowViewState.IdRef="Sequence_332">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="scg:List(ui:QueueItem)" Name="DistinctQueueResurs" />
                       <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="tempList" />
@@ -4279,7 +4280,7 @@
     .ToList()]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[DistinctQueueResurs]">
+                    <ui:ForEach x:TypeArguments="ui:QueueItem" CurrentIndex="{x:Null}" DisplayName="For Each - DistinctQueueResurs" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="ForEach`1_10" Values="[DistinctQueueResurs]">
                       <ui:ForEach.Body>
                         <ActivityAction x:TypeArguments="ui:QueueItem">
                           <ActivityAction.Argument>

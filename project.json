@@ -84,6 +84,13 @@
         "testCaseType": "TestCase",
         "executionTemplateType": "Local",
         "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "033e499b-bc22-47f8-ad97-85731df71345",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\PersonCheckTestCase.xaml"
       }
     ],
     "modernBehavior": true
