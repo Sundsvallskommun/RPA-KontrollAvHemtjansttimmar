@@ -14,7 +14,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2128,1805</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2128,1804</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -140,7 +140,7 @@
       <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="696,1740" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="696,1739" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="OrchestratorFolderPath" />
       <Variable x:TypeArguments="x:String" Name="ExcelFolder" />
@@ -179,7 +179,7 @@
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
     <ui:GetRobotCredential TimeoutMS="{x:Null}" Username="{x:Null}" AssetName="[in_Config(&quot;ExcelPassword&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="634,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[ExcelPasswordSecureString]" />
-    <Assign DisplayName="Private: Assign Excel Password" sap:VirtualizedContainerService.HintSize="634,82" sap2010:WorkflowViewState.IdRef="Assign_54">
+    <Assign DisplayName="Private: Assign Excel Password" sap:VirtualizedContainerService.HintSize="634,81" sap2010:WorkflowViewState.IdRef="Assign_54">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[ExcelPassword]</OutArgument>
       </Assign.To>
@@ -382,7 +382,7 @@
                     <av:PointCollection x:Key="ConnectorLocation">440,437.04 440,472.04</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Check If Any Excel File" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                <Sequence DisplayName="Check If Any Excel File" sap:VirtualizedContainerService.HintSize="1020,5541" sap2010:WorkflowViewState.IdRef="Sequence_32">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:Boolean" Name="FolderExists" />
                     <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="temp" />
@@ -420,7 +420,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="Regi*.xlsx" Folder="[ExcelFolder]" sap:VirtualizedContainerService.HintSize="958,5486" sap2010:WorkflowViewState.IdRef="ForEachFileX_2" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="True">
+                  <ui:ForEachFileX DisplayName="For Each File in Folder" Filter="Regi*.xlsx" Folder="[ExcelFolder]" sap:VirtualizedContainerService.HintSize="958,5165" sap2010:WorkflowViewState.IdRef="ForEachFileX_2" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="True">
                     <ui:ForEachFileX.Body>
                       <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
                         <ActivityAction.Argument1>
@@ -429,14 +429,14 @@
                         <ActivityAction.Argument2>
                           <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                         </ActivityAction.Argument2>
-                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="924,5228" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="924,4907" sap2010:WorkflowViewState.IdRef="Sequence_57">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <If Condition="[Not CurrentFile.Name.Contains(ProcessedSuffix) AndAlso Not CurrentFile.Name.Contains(ProcessingSuffix)]" DisplayName="If Not Finished Processing Or Under Processing" sap:VirtualizedContainerService.HintSize="862,5117" sap2010:WorkflowViewState.IdRef="If_11">
+                          <If Condition="[Not CurrentFile.Name.Contains(ProcessedSuffix) AndAlso Not CurrentFile.Name.Contains(ProcessingSuffix)]" DisplayName="If Not Finished Processing Or Under Processing" sap:VirtualizedContainerService.HintSize="862,4796" sap2010:WorkflowViewState.IdRef="If_11">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -444,13 +444,13 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <If.Then>
-                              <Sequence sap:VirtualizedContainerService.HintSize="828,4935" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                              <Sequence sap:VirtualizedContainerService.HintSize="828,4614" sap2010:WorkflowViewState.IdRef="Sequence_55">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="786,4847" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="786,4526" sap2010:WorkflowViewState.IdRef="Sequence_33">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="x:String" Name="RenamedExcelFile" />
                                     <Variable x:TypeArguments="sd:DataTable" Default="[New DataTable()]" Name="dt_HanteraEj" />
@@ -461,7 +461,7 @@
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Assign DisplayName="Assign Renamed Filename" sap:VirtualizedContainerService.HintSize="724,82" sap2010:WorkflowViewState.IdRef="Assign_53">
+                                  <Assign DisplayName="Assign Renamed Filename" sap:VirtualizedContainerService.HintSize="724,81" sap2010:WorkflowViewState.IdRef="Assign_53">
                                     <Assign.To>
                                       <OutArgument x:TypeArguments="x:String">[RenamedExcelFile]</OutArgument>
                                     </Assign.To>
@@ -477,7 +477,7 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:MoveFile>
-                                  <Sequence DisplayName="ladda upp i kö - person" sap:VirtualizedContainerService.HintSize="724,4259" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                                  <Sequence DisplayName="ladda upp i kö - person" sap:VirtualizedContainerService.HintSize="724,3939" sap2010:WorkflowViewState.IdRef="Sequence_61">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="scg:List(scg:IEnumerable(sd:DataRow))" Name="GruopedData" />
                                       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Default="[New Dictionary(Of String, Object)]" Name="QueueItemData" />
@@ -523,7 +523,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:FilterDataTable>
-                                    <Assign DisplayName="Assign TotRowNumber" sap:VirtualizedContainerService.HintSize="662,82" sap2010:WorkflowViewState.IdRef="Assign_48">
+                                    <Assign DisplayName="Assign TotRowNumber" sap:VirtualizedContainerService.HintSize="662,81" sap2010:WorkflowViewState.IdRef="Assign_48">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:Int32">[TotRowNumber]</OutArgument>
                                       </Assign.To>
@@ -617,7 +617,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                     </ui:FilterDataTable>
-                                    <Assign DisplayName="Get ListDistinct" sap:VirtualizedContainerService.HintSize="662,82" sap2010:WorkflowViewState.IdRef="Assign_31">
+                                    <Assign DisplayName="Get ListDistinct" sap:VirtualizedContainerService.HintSize="662,81" sap2010:WorkflowViewState.IdRef="Assign_31">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="scg:IEnumerable(x:String)">[ListDistinct]</OutArgument>
                                       </Assign.To>
@@ -625,7 +625,7 @@
                                         <InArgument x:TypeArguments="scg:IEnumerable(x:String)">[dt_OrgExcelFile.AsEnumerable.Select(function (p) p.Item("PNR").ToString).Distinct]</InArgument>
                                       </Assign.Value>
                                     </Assign>
-                                    <Assign sap:VirtualizedContainerService.HintSize="662,82" sap2010:WorkflowViewState.IdRef="Assign_55">
+                                    <Assign sap:VirtualizedContainerService.HintSize="662,81" sap2010:WorkflowViewState.IdRef="Assign_55">
                                       <Assign.To>
                                         <OutArgument x:TypeArguments="x:Int32">[NrOfPeople]</OutArgument>
                                       </Assign.To>
@@ -633,13 +633,13 @@
                                         <InArgument x:TypeArguments="x:Int32">[ListDistinct.Count]</InArgument>
                                       </Assign.Value>
                                     </Assign>
-                                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - distinct" sap:VirtualizedContainerService.HintSize="662,2954" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[ListDistinct]">
+                                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - distinct" sap:VirtualizedContainerService.HintSize="662,2637" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[ListDistinct]">
                                       <ui:ForEach.Body>
                                         <ActivityAction x:TypeArguments="x:String">
                                           <ActivityAction.Argument>
                                             <DelegateInArgument x:TypeArguments="x:String" Name="PNumber" />
                                           </ActivityAction.Argument>
-                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="628,2768" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="628,2451" sap2010:WorkflowViewState.IdRef="Sequence_62">
                                             <Sequence.Variables>
                                               <Variable x:TypeArguments="x:Int32" Name="RowIndex" />
                                               <Variable x:TypeArguments="x:Int32" Name="NumberOfRows" />
@@ -660,7 +660,7 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:LookupDataTable>
-                                            <Assign DisplayName="Private: Assign - NumberOfRows " sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_32">
+                                            <Assign DisplayName="Private: Assign - NumberOfRows " sap:VirtualizedContainerService.HintSize="586,81" sap2010:WorkflowViewState.IdRef="Assign_32">
                                               <Assign.To>
                                                 <OutArgument x:TypeArguments="x:Int32">[NumberOfRows]</OutArgument>
                                               </Assign.To>
@@ -685,13 +685,13 @@
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
                                                     <If.Then>
-                                                      <Sequence sap:VirtualizedContainerService.HintSize="476,590" sap2010:WorkflowViewState.IdRef="Sequence_70">
+                                                      <Sequence sap:VirtualizedContainerService.HintSize="476,587" sap2010:WorkflowViewState.IdRef="Sequence_70">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <Assign DisplayName="Assign - RefName" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_33">
+                                                        <Assign DisplayName="Assign - RefName" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_33">
                                                           <Assign.To>
                                                             <OutArgument x:TypeArguments="x:String">[RefName]</OutArgument>
                                                           </Assign.To>
@@ -699,7 +699,7 @@
                                                             <InArgument x:TypeArguments="x:String">[RefName + RowIndex.ToString + ","]</InArgument>
                                                           </Assign.Value>
                                                         </Assign>
-                                                        <Assign DisplayName="Update NumberOfRows" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_34">
+                                                        <Assign DisplayName="Update NumberOfRows" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_34">
                                                           <Assign.To>
                                                             <OutArgument x:TypeArguments="x:Int32">[NumberOfRows]</OutArgument>
                                                           </Assign.To>
@@ -713,7 +713,7 @@
                                                           </InvokeMethod.TargetObject>
                                                           <InArgument x:TypeArguments="x:Int32">[RowIndex]</InArgument>
                                                         </InvokeMethod>
-                                                        <Assign DisplayName="Update RowIndex" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_36">
+                                                        <Assign DisplayName="Update RowIndex" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_36">
                                                           <Assign.To>
                                                             <OutArgument x:TypeArguments="x:Int32">[RowIndex]</OutArgument>
                                                           </Assign.To>
@@ -724,13 +724,13 @@
                                                       </Sequence>
                                                     </If.Then>
                                                     <If.Else>
-                                                      <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_71">
+                                                      <Sequence sap:VirtualizedContainerService.HintSize="476,169" sap2010:WorkflowViewState.IdRef="Sequence_71">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <Assign DisplayName="Update RowIndex 2" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_37">
+                                                        <Assign DisplayName="Update RowIndex 2" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_37">
                                                           <Assign.To>
                                                             <OutArgument x:TypeArguments="x:Int32">[RowIndex]</OutArgument>
                                                           </Assign.To>
@@ -751,13 +751,13 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:InterruptibleWhile>
-                                            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each RowIndexList" sap:VirtualizedContainerService.HintSize="586,2164" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[RowIndexList]">
+                                            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each RowIndexList" sap:VirtualizedContainerService.HintSize="586,1848" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[RowIndexList]">
                                               <ui:ForEach.Body>
                                                 <ActivityAction x:TypeArguments="x:Object">
                                                   <ActivityAction.Argument>
                                                     <DelegateInArgument x:TypeArguments="x:Object" Name="RowIndexItem" />
                                                   </ActivityAction.Argument>
-                                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1978" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1662" sap2010:WorkflowViewState.IdRef="Sequence_63">
                                                     <Sequence.Variables>
                                                       <Variable x:TypeArguments="x:Object" Name="QueueObject" />
                                                       <Variable x:TypeArguments="sd:DataRow" Name="RowQueueItem" />
@@ -770,7 +770,7 @@
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <Assign DisplayName="Assign - QueueItemData" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_39">
+                                                    <Assign DisplayName="Assign - QueueItemData" sap:VirtualizedContainerService.HintSize="510,81" sap2010:WorkflowViewState.IdRef="Assign_39">
                                                       <Assign.To>
                                                         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[QueueItemData]</OutArgument>
                                                       </Assign.To>
@@ -778,7 +778,7 @@
                                                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
                                                       </Assign.Value>
                                                     </Assign>
-                                                    <Assign DisplayName="Assign InsatserNotToHandle" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_57">
+                                                    <Assign DisplayName="Assign InsatserNotToHandle" sap:VirtualizedContainerService.HintSize="510,81" sap2010:WorkflowViewState.IdRef="Assign_57">
                                                       <Assign.To>
                                                         <OutArgument x:TypeArguments="x:String">[InsatserNotToHandle]</OutArgument>
                                                       </Assign.To>
@@ -786,7 +786,7 @@
                                                         <InArgument x:TypeArguments="x:String">[in_Config("InsatserNotToHandle").ToString]</InArgument>
                                                       </Assign.Value>
                                                     </Assign>
-                                                    <Assign DisplayName="Assign Name for Item" sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_58">
+                                                    <Assign DisplayName="Assign Name for Item" sap:VirtualizedContainerService.HintSize="510,81" sap2010:WorkflowViewState.IdRef="Assign_58">
                                                       <Assign.To>
                                                         <OutArgument x:TypeArguments="x:String">[Name]</OutArgument>
                                                       </Assign.To>
@@ -794,44 +794,7 @@
                                                         <InArgument x:TypeArguments="x:String">[System.IO.Path.GetFileName(RenamedExcelFile) + "-" + RowIndexItem.ToString +"-" + NrOfPeople.ToString]</InArgument>
                                                       </Assign.Value>
                                                     </Assign>
-                                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="510,273" sap2010:WorkflowViewState.IdRef="CommentOut_8">
-                                                      <ui:CommentOut.Body>
-                                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,194" sap2010:WorkflowViewState.IdRef="Sequence_132">
-                                                          <sap:WorkflowViewStateService.ViewState>
-                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                            </scg:Dictionary>
-                                                          </sap:WorkflowViewStateService.ViewState>
-                                                          <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Denna är orginal" Code="Try&#xA;    ' Din ursprungliga kod&#xA;    Dim insatsStr As String = InsatserNotToHandle.ToLower()&#xA;&#xA;    ' Dela upp strängen i en array baserat på semikolon&#xA;    Dim insatser As String() = insatsStr.Split(&quot;;&quot;c)&#xA;&#xA;    ' Hämta värdet från datatabellen för den aktuella raden&#xA;    Dim insatsFromRow As String = dt_OrgExcelFile.Rows(RowIndexItem)(&quot;INSATS&quot;).ToString().ToLower()&#xA;    &#xA;    ' Variabel för att hålla reda på om något matchar&#xA;    Dim matchFound As Boolean = False&#xA;&#x9;&#xA;&#x9;Dim periodOfValidity As String = dt_OrgExcelFile.Rows(RowIndexItem)(&quot;GILPERIOD&quot;).ToString().Trim()&#xA;    Console.WriteLine(&quot;SperiodOfValidity&quot;+ periodOfValidity.ToString)&#xA;&#xA;&#xA;    ' Loopa genom varje insats i arrayen och kolla om den finns i cellens värde&#xA;    For Each insats As String In insatser&#xA;        If insatsFromRow Is Nothing OrElse String.IsNullOrEmpty(insatsFromRow) OrElse _&#xA;           insatsFromRow.Equals(insats) OrElse insatsFromRow.StartsWith(insats) Then&#xA;            matchFound = True&#xA;            Exit For ' Avsluta loopen om vi hittar en matchning&#xA;        End If&#xA;    Next&#xA;&#xA;    ' Om ingen matchning hittades i insatser, kolla i dt_Insatser&#xA;    If Not matchFound Then&#xA;        For Each row As DataRow In dt_Insatser.Rows&#xA;            Dim insatsValue As String = row(&quot;Insats i Procapita&quot;).ToString().ToLower()&#xA;&#xA;            ' Kontrollera om insatsFromRow matchar något i kolumnen &quot;Insats i Procapita&quot;&#xA;            If insatsValue.Equals(insatsFromRow) AndAlso _&#xA;               insatsValue IsNot Nothing AndAlso insatsFromRow IsNot Nothing Then&#xA;                matchFound = False&#xA;                Exit For ' Avsluta loopen om en matchning hittas&#xA;&#x9;&#x9;&#x9;Else&#xA;&#x9;&#x9;&#x9;&#x9;matchFound = True&#xA;            End If&#xA;        Next&#xA;    End If&#xA;&#xA;    ' Kontrollera om vi hittade en matchning&#xA;    If matchFound Then&#xA;        ' Gör något om en matchning hittades&#xA;        dt_HanteraEj.Rows(CInt(RowIndexItem))(&quot;Hanteras ej&quot;) = &quot;Hanteras ej.&quot;&#xA;    Else&#xA;        ' Lägg till rad i kö (Queue) med relevant information om ingen matchning hittades&#xA;        UploadToQueue = True&#xA;    End If&#xA;&#xA;Catch ex As Exception&#xA;    ' Logga undantaget för att se exakt vad som orsakar felet&#xA;    Console.WriteLine(&quot;Fel: &quot; &amp; ex.Message)&#xA;    Console.WriteLine(&quot;Stack Trace: &quot; &amp; ex.StackTrace)&#xA;End Try&#xA;" DisplayName="Private: Remove Insatser Not to handle" sap:VirtualizedContainerService.HintSize="388,83" sap2010:WorkflowViewState.IdRef="InvokeCode_8">
-                                                            <ui:InvokeCode.Arguments>
-                                                              <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_OrgExcelFile">[dt_OrgExcelFile]</InArgument>
-                                                              <InArgument x:TypeArguments="x:String" x:Key="InsatserNotToHandle">[InsatserNotToHandle]</InArgument>
-                                                              <InArgument x:TypeArguments="x:Int32" x:Key="RowIndexItem">[CInt(RowIndexItem)]</InArgument>
-                                                              <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_HanteraEj">[dt_HanteraEj]</InOutArgument>
-                                                              <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_UploadQueue">[dt_UploadQueue]</InArgument>
-                                                              <InArgument x:TypeArguments="x:String" x:Key="RefName">[RefName]</InArgument>
-                                                              <InArgument x:TypeArguments="x:Int32" x:Key="TotRowNumber">[TotRowNumber]</InArgument>
-                                                              <OutArgument x:TypeArguments="x:Boolean" x:Key="UploadToQueue">[UploadToQueue]</OutArgument>
-                                                              <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_Insatser">[in_dt_Insatser]</InArgument>
-                                                            </ui:InvokeCode.Arguments>
-                                                            <sap:WorkflowViewStateService.ViewState>
-                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                                              </scg:Dictionary>
-                                                            </sap:WorkflowViewStateService.ViewState>
-                                                          </ui:InvokeCode>
-                                                        </Sequence>
-                                                      </ui:CommentOut.Body>
-                                                      <sap:WorkflowViewStateService.ViewState>
-                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                                        </scg:Dictionary>
-                                                      </sap:WorkflowViewStateService.ViewState>
-                                                    </ui:CommentOut>
-                                                    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="test 2, org + inte org..&#xA;" Code="Try&#xA;    ' Din ursprungliga kod&#xA;    Dim insatsStr As String = InsatserNotToHandle.ToLower()&#xA;&#xA;    ' Dela upp strängen i en array baserat på semikolon&#xA;    Dim insatser As String() = insatsStr.Split(&quot;;&quot;c)&#xA;&#xA;    ' Hämta värdet från datatabellen för den aktuella raden&#xA;    Dim insatsFromRow As String = dt_OrgExcelFile.Rows(RowIndexItem)(&quot;INSATS&quot;).ToString().ToLower()&#xA;    &#xA;    ' Variabel för att hålla reda på om något matchar&#xA;    Dim matchFound As Boolean = False&#xA;&#x9;&#xA;    Dim periodOfValidity As String = dt_OrgExcelFile.Rows(RowIndexItem)(&quot;GILPERIOD&quot;).ToString().Trim()&#xA;    Dim endDate As String = String.Empty ' Deklarera endDate här&#xA;&#x9;&#xA;    ' Kontrollera periodOfValidity&#xA;    If Not String.IsNullOrEmpty(periodOfValidity) Then&#xA;        Dim dateParts As String() = periodOfValidity.Split(&quot;-&quot;c)&#xA;        ' Trimma och hämta det sista datumet&#xA;        If dateParts.Length &gt; 1 Then&#xA;            endDate = dateParts(1).Trim() ' Sätt värdet av endDate&#xA;        End If&#xA;    Else           &#xA;        matchFound = True&#xA;    End If&#xA;&#xA;    ' Loopa genom varje insats i arrayen och kolla om den finns i cellens värde&#xA;    For Each insats As String In insatser&#xA;        If insatsFromRow Is Nothing OrElse String.IsNullOrEmpty(insatsFromRow) OrElse _&#xA;           insatsFromRow.Equals(insats) OrElse insatsFromRow.StartsWith(insats) Then&#xA;            matchFound = True&#xA;            Exit For ' Avsluta loopen om vi hittar en matchning&#xA;        End If&#xA;    Next&#xA;&#xA;    ' Om ingen matchning hittades i insatser, kolla i dt_Insatser&#xA;    If Not matchFound Then&#xA;        For Each row As DataRow In dt_Insatser.Rows&#xA;            Dim insatsValue As String = row(&quot;Insats i Procapita&quot;).ToString().ToLower()&#xA;&#xA;            ' Kontrollera om insatsFromRow matchar något i kolumnen &quot;Insats i Procapita&quot;&#xA;            If insatsValue.Equals(insatsFromRow) AndAlso _&#xA;               insatsValue IsNot Nothing AndAlso insatsFromRow IsNot Nothing Then&#xA;                matchFound = False&#xA;                Exit For ' Avsluta loopen om en matchning hittas&#xA;            Else&#xA;                matchFound = True&#xA;            End If&#xA;        Next&#xA;    End If&#xA;&#x9;&#xA;    ' TREDJE CHECKEN - Kolla om sista tecknet i periodOfValidity är en siffra, &quot;-&quot; eller något annat&#xA;    If Not matchFound Then&#xA;        Console.WriteLine(&quot;inne i tredje checken: &quot; + periodOfValidity + &quot; &amp;&amp;&amp;&amp;&amp;&amp;&amp; endate: &quot; + endDate)&#xA;        ' Kontrollera om sista tecknet är en siffra eller ett streck&#xA;        If Not String.IsNullOrEmpty(periodOfValidity) Then&#xA;            Dim lastChar As Char = periodOfValidity.Last() ' Hämta sista tecknet i strängen&#xA;&#x9;&#x9;&#x9;&#xA;            ' Kolla om den är öppen (sista tecknet är '-')&#xA;            If lastChar = &quot;-&quot;c Then&#xA;                matchFound = False ' Öppen giltighetsperiod, och hanteras&#xA;                Console.WriteLine(&quot;öppen gilt.&quot;)&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;            ' Kontrollera om endDate är giltigt och ej tomt&#xA;            ElseIf Not String.IsNullOrEmpty(endDate) Then&#xA;                ' Hämta första dagen i förra månaden&#xA;                Dim firstDayOfMonth As DateTime = New DateTime(Now.Year, Now.Month, 1)&#xA;&#xA;                ' Konvertera endDate till ett DateTime-objekt för jämförelse&#xA;                Dim parsedEndDate As DateTime&#xA;                Dim dateFormat As String = &quot;yyyyMMdd&quot; ' Specificera formatet du förväntar dig&#xA;&#xA;                ' Konvertera endDate till DateTime&#xA;                If DateTime.TryParseExact(endDate, dateFormat, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, parsedEndDate) Then&#xA;                    Console.WriteLine(&quot;Datum end: &quot; + endDate + &quot; firstDayOfMonth: &quot; + firstDayOfMonth.ToString(&quot;yyyyMMdd&quot;))&#xA;                    ' Kolla om endDate är tidigare än den första dagen i förra månaden&#xA;                    If parsedEndDate &lt;= firstDayOfMonth Then&#xA;                        matchFound = True ' Datumet är tidigare, och ska därför INTE hanteras. &#xA;                    End If&#xA;                Else&#xA;                    ' Hantera fall där endDate inte är ett giltigt datum&#xA;                    matchFound = False ' Datumet ligger EFTER och ska därför hanteras.&#xA;                End If&#xA;            End If&#xA;        End If&#xA;    End If&#xA;&#x9;&#xA;    ' Kontrollera om vi hittade en matchning&#xA;    If matchFound Then&#xA;        ' Gör något om en matchning hittades&#xA;        dt_HanteraEj.Rows(CInt(RowIndexItem))(&quot;Hanteras ej&quot;) = &quot;Hanteras ej.&quot;&#xA;    Else&#xA;        ' Lägg till rad i kö (Queue) med relevant information om ingen matchning hittades&#xA;        UploadToQueue = True&#xA;    End If&#xA;&#xA;Catch ex As Exception&#xA;    ' Logga undantaget för att se exakt vad som orsakar felet&#xA;    Console.WriteLine(&quot;Fel: &quot; &amp; ex.Message)&#xA;    Console.WriteLine(&quot;Stack Trace: &quot; &amp; ex.StackTrace)&#xA;End Try" DisplayName="Private: Remove Insatser Not to handle" sap:VirtualizedContainerService.HintSize="510,207" sap2010:WorkflowViewState.IdRef="InvokeCode_12">
+                                                    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="&#xA;" Code="Try&#xD;&#xA;    ' Din ursprungliga kod&#xD;&#xA;    Dim insatsStr As String = InsatserNotToHandle.ToLower()&#xD;&#xA;&#xD;&#xA;    ' Dela upp strängen i en array baserat på semikolon&#xD;&#xA;    Dim insatser As String() = insatsStr.Split(&quot;;&quot;c)&#xD;&#xA;&#xD;&#xA;    ' Hämta värdet från datatabellen för den aktuella raden&#xD;&#xA;    Dim insatsFromRow As String = dt_OrgExcelFile.Rows(RowIndexItem)(&quot;INSATS&quot;).ToString().ToLower()&#xD;&#xA;    &#xD;&#xA;    ' Variabel för att hålla reda på om något matchar&#xD;&#xA;    Dim matchFound As Boolean = False&#xD;&#xA;&#x9;&#xD;&#xA;    Dim periodOfValidity As String = dt_OrgExcelFile.Rows(RowIndexItem)(&quot;GILPERIOD&quot;).ToString().Trim()&#xD;&#xA;    Dim endDate As String = String.Empty ' Deklarera endDate här&#xD;&#xA;&#x9;&#xD;&#xA;    ' Kontrollera periodOfValidity&#xD;&#xA;    If Not String.IsNullOrEmpty(periodOfValidity) Then&#xD;&#xA;        Dim dateParts As String() = periodOfValidity.Split(&quot;-&quot;c)&#xD;&#xA;        ' Trimma och hämta det sista datumet&#xD;&#xA;        If dateParts.Length &gt; 1 Then&#xD;&#xA;            endDate = dateParts(1).Trim() ' Sätt värdet av endDate&#xD;&#xA;        End If&#xD;&#xA;    Else           &#xD;&#xA;        matchFound = True&#xD;&#xA;    End If&#xD;&#xA;&#xD;&#xA;    ' Loopa genom varje insats i arrayen och kolla om den finns i cellens värde&#xD;&#xA;    For Each insats As String In insatser&#xD;&#xA;        If insatsFromRow Is Nothing OrElse String.IsNullOrEmpty(insatsFromRow) OrElse _&#xD;&#xA;           insatsFromRow.Equals(insats) OrElse insatsFromRow.StartsWith(insats) Then&#xD;&#xA;            matchFound = True&#xD;&#xA;            Exit For ' Avsluta loopen om vi hittar en matchning&#xD;&#xA;        End If&#xD;&#xA;    Next&#xD;&#xA;&#xD;&#xA;    ' Om ingen matchning hittades i insatser, kolla i dt_Insatser&#xD;&#xA;    If Not matchFound Then&#xD;&#xA;        For Each row As DataRow In dt_Insatser.Rows&#xD;&#xA;            Dim insatsValue As String = row(&quot;Insats i Procapita&quot;).ToString().ToLower()&#xD;&#xA;&#xD;&#xA;            ' Kontrollera om insatsFromRow matchar något i kolumnen &quot;Insats i Procapita&quot;&#xD;&#xA;            If insatsValue.Equals(insatsFromRow) AndAlso _&#xD;&#xA;               insatsValue IsNot Nothing AndAlso insatsFromRow IsNot Nothing Then&#xD;&#xA;                matchFound = False&#xD;&#xA;                Exit For ' Avsluta loopen om en matchning hittas&#xD;&#xA;            Else&#xD;&#xA;                matchFound = True&#xD;&#xA;            End If&#xD;&#xA;        Next&#xD;&#xA;    End If&#xD;&#xA;&#x9;&#xD;&#xA;    ' TREDJE CHECKEN - Kolla om sista tecknet i periodOfValidity är en siffra, &quot;-&quot; eller något annat&#xD;&#xA;    If Not matchFound Then&#xD;&#xA;        ' Console.WriteLine(&quot;inne i tredje checken: &quot; + periodOfValidity + &quot; &amp;&amp;&amp;&amp;&amp;&amp;&amp; endate: &quot; + endDate)&#xD;&#xA;        ' Kontrollera om sista tecknet är en siffra eller ett streck&#xD;&#xA;        If Not String.IsNullOrEmpty(periodOfValidity) Then&#xD;&#xA;            Dim lastChar As Char = periodOfValidity.Last() ' Hämta sista tecknet i strängen&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;            ' Kolla om den är öppen (sista tecknet är '-')&#xD;&#xA;            If lastChar = &quot;-&quot;c Then&#xD;&#xA;                matchFound = False ' Öppen giltighetsperiod, och hanteras&#xD;&#xA;                ' Console.WriteLine(&quot;öppen gilt.&quot;)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;            ' Kontrollera om endDate är giltigt och ej tomt&#xD;&#xA;            ElseIf Not String.IsNullOrEmpty(endDate) Then&#xD;&#xA;                ' Hämta första dagen i förra månaden&#xD;&#xA;                Dim firstDayOfMonth As DateTime = New DateTime(Now.Year, Now.Month, 1)&#xD;&#xA;&#xD;&#xA;                ' Konvertera endDate till ett DateTime-objekt för jämförelse&#xD;&#xA;                Dim parsedEndDate As DateTime&#xD;&#xA;                Dim dateFormat As String = &quot;yyyyMMdd&quot; ' Specificera formatet du förväntar dig&#xD;&#xA;&#xD;&#xA;                ' Konvertera endDate till DateTime&#xD;&#xA;                If DateTime.TryParseExact(endDate, dateFormat, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, parsedEndDate) Then&#xD;&#xA;                    ' Console.WriteLine(&quot;Datum end: &quot; + endDate + &quot; firstDayOfMonth: &quot; + firstDayOfMonth.ToString(&quot;yyyyMMdd&quot;))&#xD;&#xA;                    ' Kolla om endDate är tidigare än den första dagen i förra månaden&#xD;&#xA;                    If parsedEndDate &lt;= firstDayOfMonth Then&#xD;&#xA;                        matchFound = True ' Datumet är tidigare, och ska därför INTE hanteras. &#xD;&#xA;                    End If&#xD;&#xA;                Else&#xD;&#xA;                    ' Hantera fall där endDate inte är ett giltigt datum&#xD;&#xA;                    matchFound = False ' Datumet ligger EFTER och ska därför hanteras.&#xD;&#xA;                End If&#xD;&#xA;            End If&#xD;&#xA;        End If&#xD;&#xA;    End If&#xD;&#xA;&#x9;&#xD;&#xA;    ' Kontrollera om vi hittade en matchning&#xD;&#xA;    If matchFound Then&#xD;&#xA;        ' Gör något om en matchning hittades&#xD;&#xA;        dt_HanteraEj.Rows(CInt(RowIndexItem))(&quot;Hanteras ej&quot;) = &quot;Hanteras ej.&quot;&#xD;&#xA;    Else&#xD;&#xA;        ' Lägg till rad i kö (Queue) med relevant information om ingen matchning hittades&#xD;&#xA;        UploadToQueue = True&#xD;&#xA;    End If&#xD;&#xA;&#xD;&#xA;Catch ex As Exception&#xD;&#xA;    ' Logga undantaget för att se exakt vad som orsakar felet&#xD;&#xA;    Console.WriteLine(&quot;Fel: &quot; &amp; ex.Message)&#xD;&#xA;    Console.WriteLine(&quot;Stack Trace: &quot; &amp; ex.StackTrace)&#xD;&#xA;End Try" DisplayName="Private: Remove Insatser Not to handle" sap:VirtualizedContainerService.HintSize="510,207" sap2010:WorkflowViewState.IdRef="InvokeCode_12">
                                                       <ui:InvokeCode.Arguments>
                                                         <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_OrgExcelFile">[dt_OrgExcelFile]</InArgument>
                                                         <InArgument x:TypeArguments="x:String" x:Key="InsatserNotToHandle">[InsatserNotToHandle]</InArgument>
@@ -983,7 +946,7 @@
                                                     </If>
                                                     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="510,52" sap2010:WorkflowViewState.IdRef="CommentOut_12">
                                                       <ui:CommentOut.Body>
-                                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,163" sap2010:WorkflowViewState.IdRef="Sequence_136">
+                                                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,293" sap2010:WorkflowViewState.IdRef="Sequence_136">
                                                           <sap:WorkflowViewStateService.ViewState>
                                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>

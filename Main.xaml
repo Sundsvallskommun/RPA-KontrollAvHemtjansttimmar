@@ -10,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2128,864</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2434,1187</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -163,7 +163,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Get the next transaction to be processed." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="251,113" sap2010:WorkflowViewState.IdRef="State_4">
       <State.Entry>
-        <Sequence sap2010:Annotation.AnnotationText="Retrieve a new transaction data to be processed.&#xA;The TransactionNumber variable holds the current transaction number and incrementing this variable makes the framework retrieve the next transaction. If the framework is retrying a failed transaction, this variable is not incremented until the maximum number of retry attempts is reached." DisplayName="Retrieve Data" sap:VirtualizedContainerService.HintSize="450,380" sap2010:WorkflowViewState.IdRef="Sequence_25">
+        <Sequence sap2010:Annotation.AnnotationText="Retrieve a new transaction data to be processed.&#xA;The TransactionNumber variable holds the current transaction number and incrementing this variable makes the framework retrieve the next transaction. If the framework is retrying a failed transaction, this variable is not incremented until the maximum number of retry attempts is reached." DisplayName="Retrieve Data" sap:VirtualizedContainerService.HintSize="584,947" sap2010:WorkflowViewState.IdRef="Sequence_25">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="ShouldStop" />
           </Sequence.Variables>
@@ -174,11 +174,11 @@
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ShouldStop DisplayName="Check Stop Signal" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="ShouldStop_2" Result="[ShouldStop]" />
-          <If Condition="[ShouldStop]" DisplayName="Should Stop or Get Next" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="If_11">
+          <ui:ShouldStop DisplayName="Check Stop Signal" sap:VirtualizedContainerService.HintSize="522,90" sap2010:WorkflowViewState.IdRef="ShouldStop_2" Result="[ShouldStop]" />
+          <If Condition="[ShouldStop]" DisplayName="Should Stop or Get Next" sap:VirtualizedContainerService.HintSize="522,634" sap2010:WorkflowViewState.IdRef="If_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -244,7 +244,7 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Log exception message and end process" sap:VirtualizedContainerService.HintSize="496,288" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                      <Sequence DisplayName="Log exception message and end process" sap:VirtualizedContainerService.HintSize="496,286" sap2010:WorkflowViewState.IdRef="Sequence_24">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -290,9 +290,9 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="734,3441" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="976,4646" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
-                <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="688,2969" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="930,4174" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -300,7 +300,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <TryCatch.Try>
-                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="650,2719" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <Sequence DisplayName="Process the current TransactionItem" sap:VirtualizedContainerService.HintSize="812,3924" sap2010:WorkflowViewState.IdRef="Sequence_28">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="NewItems" />
                       </Sequence.Variables>
@@ -309,7 +309,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <Assign DisplayName="Assign BusinessException" sap:VirtualizedContainerService.HintSize="588,81" sap2010:WorkflowViewState.IdRef="Assign_25">
+                      <Assign DisplayName="Assign BusinessException" sap:VirtualizedContainerService.HintSize="750,82" sap2010:WorkflowViewState.IdRef="Assign_25">
                         <Assign.To>
                           <OutArgument x:TypeArguments="ui:BusinessRuleException">[BusinessException]</OutArgument>
                         </Assign.To>
@@ -317,7 +317,7 @@
                           <InArgument x:TypeArguments="ui:BusinessRuleException">[Nothing]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="588,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\Process.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="750,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\Process.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
                           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
@@ -335,7 +335,7 @@
                           <InOutArgument x:TypeArguments="x:String" x:Key="io_TotalNumberOfRows">[TotalNumberOfRows]</InOutArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
-                      <If Condition="[BusinessException IsNot Nothing]" DisplayName="Check if Exception is somthing" sap:VirtualizedContainerService.HintSize="588,52" sap2010:WorkflowViewState.IdRef="If_23">
+                      <If Condition="[BusinessException IsNot Nothing]" DisplayName="Check if Exception is somthing" sap:VirtualizedContainerService.HintSize="750,52" sap2010:WorkflowViewState.IdRef="If_23">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -343,13 +343,13 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="300,140" sap2010:WorkflowViewState.IdRef="Sequence_82">
+                          <Sequence sap:VirtualizedContainerService.HintSize="328,140" sap2010:WorkflowViewState.IdRef="Sequence_82">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <TryCatch DisplayName="Try Catch Set Transaction Status (BRE)" sap:VirtualizedContainerService.HintSize="258,52" sap2010:WorkflowViewState.IdRef="TryCatch_19">
+                            <TryCatch DisplayName="Try Catch Set Transaction Status (BRE)" sap:VirtualizedContainerService.HintSize="286,52" sap2010:WorkflowViewState.IdRef="TryCatch_19">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -451,7 +451,7 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <Assign DisplayName="Assign - ExcelFileName" sap:VirtualizedContainerService.HintSize="588,81" sap2010:WorkflowViewState.IdRef="Assign_47">
+                      <Assign DisplayName="Assign - ExcelFileName" sap:VirtualizedContainerService.HintSize="750,82" sap2010:WorkflowViewState.IdRef="Assign_47">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:String">[ExcelFileName]</OutArgument>
                         </Assign.To>
@@ -459,7 +459,7 @@
                           <InArgument x:TypeArguments="x:String">[(TransactionItem.Reference.Split("-"c))(0)]</InArgument>
                         </Assign.Value>
                       </Assign>
-                      <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get Queue New Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="588,52" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New" QueueName="[Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[ExcelFileName]" Result="[NewItems]">
+                      <ui:GetQueueItems Duration="{x:Null}" From="{x:Null}" Priority="{x:Null}" Skip="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" Top="{x:Null}" DisplayName="Get Queue New Items" FilterStrategy="StartsWith" sap:VirtualizedContainerService.HintSize="750,52" sap2010:WorkflowViewState.IdRef="GetQueueItems_1" QueueItemStates="New" QueueName="[Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[ExcelFileName]" Result="[NewItems]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -467,7 +467,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:GetQueueItems>
-                      <If Condition="[NewItems.Count.Equals(0)]" DisplayName="If summarize run" sap:VirtualizedContainerService.HintSize="588,2029" sap2010:WorkflowViewState.IdRef="If_22">
+                      <If Condition="[NewItems.Count.Equals(0)]" DisplayName="If summarize run" sap:VirtualizedContainerService.HintSize="750,3232" sap2010:WorkflowViewState.IdRef="If_22">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -475,13 +475,13 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="554,1847" sap2010:WorkflowViewState.IdRef="Sequence_74">
+                          <Sequence sap:VirtualizedContainerService.HintSize="716,3050" sap2010:WorkflowViewState.IdRef="Sequence_74">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Summarize run" sap:VirtualizedContainerService.HintSize="512,1638" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                            <Sequence DisplayName="Summarize run" sap:VirtualizedContainerService.HintSize="674,2840" sap2010:WorkflowViewState.IdRef="Sequence_61">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="SuccessfulQueueItems" />
                                 <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="FailedQueueItems" />
@@ -507,7 +507,7 @@
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="LogMessage_41" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Last Item&quot;]">
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="612,52" sap2010:WorkflowViewState.IdRef="LogMessage_41" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Last Item&quot;]">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -515,7 +515,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:LogMessage>
-                              <ui:GetRobotCredential TimeoutMS="{x:Null}" Username="{x:Null}" AssetName="[Config(&quot;ExcelPassword&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ExcelPasswordSecureString]">
+                              <ui:GetRobotCredential TimeoutMS="{x:Null}" Username="{x:Null}" AssetName="[Config(&quot;ExcelPassword&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="612,52" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[ExcelPasswordSecureString]">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -523,7 +523,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:GetRobotCredential>
-                              <ui:MultipleAssign DisplayName="Multiple Assign From Config File" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                              <ui:MultipleAssign DisplayName="Multiple Assign From Config File" sap:VirtualizedContainerService.HintSize="612,52" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                                 <ui:MultipleAssign.AssignOperations>
                                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
                                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -591,7 +591,7 @@
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:MultipleAssign>
-                              <Assign DisplayName="Private: Assign Excel Password" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_45">
+                              <Assign DisplayName="Private: Assign Excel Password" sap:VirtualizedContainerService.HintSize="612,82" sap2010:WorkflowViewState.IdRef="Assign_45">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[ExcelPassword]</OutArgument>
                                 </Assign.To>
@@ -599,7 +599,7 @@
                                   <InArgument x:TypeArguments="x:String">[New System.Net.NetworkCredential("", ExcelPasswordSecureString).Password]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign DisplayName="Assign ExcelFileName" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_30">
+                              <Assign DisplayName="Assign ExcelFileName" sap:VirtualizedContainerService.HintSize="612,82" sap2010:WorkflowViewState.IdRef="Assign_30">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[ExcelFileName]</OutArgument>
                                 </Assign.To>
@@ -607,7 +607,7 @@
                                   <InArgument x:TypeArguments="x:String">[TransactionItem.Reference.Split("-"c)(0)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign DisplayName="Assign ExcelFilePath" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_31">
+                              <Assign DisplayName="Assign ExcelFilePath" sap:VirtualizedContainerService.HintSize="612,82" sap2010:WorkflowViewState.IdRef="Assign_31">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[ExcelFilePath]</OutArgument>
                                 </Assign.To>
@@ -615,7 +615,7 @@
                                   <InArgument x:TypeArguments="x:String">[Config("ExcelFinishedFolderPath").ToString]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign DisplayName="Assign ExcelFileProcessingSuffix" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_32">
+                              <Assign DisplayName="Assign ExcelFileProcessingSuffix" sap:VirtualizedContainerService.HintSize="612,82" sap2010:WorkflowViewState.IdRef="Assign_32">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[ExcelFileProcessingSuffix]</OutArgument>
                                 </Assign.To>
@@ -623,7 +623,7 @@
                                   <InArgument x:TypeArguments="x:String">[Config("ProcessingSuffix").ToString]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <Assign DisplayName="Assign ExcelFileFinishedSuffix" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_46">
+                              <Assign DisplayName="Assign ExcelFileFinishedSuffix" sap:VirtualizedContainerService.HintSize="612,82" sap2010:WorkflowViewState.IdRef="Assign_46">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[ExcelFileFinishedSuffix]</OutArgument>
                                 </Assign.To>
@@ -631,10 +631,10 @@
                                   <InArgument x:TypeArguments="x:String">[Config("ProcessedSuffix").ToString]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <TryCatch DisplayName="Try Catch AddToExcel" sap:VirtualizedContainerService.HintSize="450,341" sap2010:WorkflowViewState.IdRef="TryCatch_23">
+                              <TryCatch DisplayName="Try Catch AddToExcel" sap:VirtualizedContainerService.HintSize="612,52" sap2010:WorkflowViewState.IdRef="TryCatch_23">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
@@ -670,7 +670,7 @@
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                       </ActivityAction.Argument>
-                                      <Sequence sap:VirtualizedContainerService.HintSize="450,166" sap2010:WorkflowViewState.IdRef="Sequence_109">
+                                      <Sequence sap:VirtualizedContainerService.HintSize="450,151" sap2010:WorkflowViewState.IdRef="Sequence_109">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -689,15 +689,15 @@
                                   </Catch>
                                 </TryCatch.Catches>
                               </TryCatch>
-                              <TryCatch DisplayName="Try Catch Send Mail" sap:VirtualizedContainerService.HintSize="658,1728" sap2010:WorkflowViewState.IdRef="TryCatch_24">
+                              <TryCatch DisplayName="Try Catch Send Mail" sap:VirtualizedContainerService.HintSize="612,1538" sap2010:WorkflowViewState.IdRef="TryCatch_24">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <TryCatch.Try>
-                                  <Sequence DisplayName="Send Mail" sap:VirtualizedContainerService.HintSize="620,1500" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                                  <Sequence DisplayName="Send Mail" sap:VirtualizedContainerService.HintSize="574,1310" sap2010:WorkflowViewState.IdRef="Sequence_62">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:String" Name="NrOfOverInsats" />
                                       <Variable x:TypeArguments="x:String" Name="NrOfDubbel" />
@@ -710,7 +710,7 @@
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="For Mail" sap:VirtualizedContainerService.HintSize="558,1297" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                    <Sequence DisplayName="For Mail" sap:VirtualizedContainerService.HintSize="512,1107" sap2010:WorkflowViewState.IdRef="Sequence_63">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="sd:DataTable" Name="dt_OverInsats" />
                                         <Variable x:TypeArguments="sd:DataTable" Name="dt_Dubbel" />
@@ -724,7 +724,7 @@
                                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <Sequence DisplayName="nr of Godkända" sap:VirtualizedContainerService.HintSize="496,81" sap2010:WorkflowViewState.IdRef="Sequence_103">
+                                      <Sequence DisplayName="nr of Godkända" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_103">
                                         <Sequence.Variables>
                                           <Variable x:TypeArguments="sd:DataTable" Name="dt_Ok" />
                                         </Sequence.Variables>
@@ -765,10 +765,10 @@
                                           </Assign.Value>
                                         </Assign>
                                       </Sequence>
-                                      <Sequence DisplayName="Sum Dubletter" sap:VirtualizedContainerService.HintSize="496,485" sap2010:WorkflowViewState.IdRef="Sequence_91">
+                                      <Sequence DisplayName="Sum Dubletter" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_91">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
@@ -794,7 +794,7 @@
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
                                         </ui:FilterDataTable>
-                                        <Assign DisplayName="Assign NrOfDubbel" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_35">
+                                        <Assign DisplayName="Assign NrOfDubbel" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_35">
                                           <Assign.To>
                                             <OutArgument x:TypeArguments="x:String">[NrOfDubbel]</OutArgument>
                                           </Assign.To>
@@ -842,7 +842,7 @@
                                           </sap:WorkflowViewStateService.ViewState>
                                         </ui:ForEachRow>
                                       </Sequence>
-                                      <Sequence DisplayName="Sum Överstigande" sap:VirtualizedContainerService.HintSize="496,81" sap2010:WorkflowViewState.IdRef="Sequence_92">
+                                      <Sequence DisplayName="Sum Överstigande" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_92">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -918,15 +918,15 @@
                                           </sap:WorkflowViewStateService.ViewState>
                                         </ui:ForEachRow>
                                       </Sequence>
-                                      <Assign DisplayName="Assign TotalNumberOfFailedRows" sap:VirtualizedContainerService.HintSize="496,81" sap2010:WorkflowViewState.IdRef="Assign_37">
+                                      <Assign DisplayName="Assign TotalNumberOfFailedRows" sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_70">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">[TotalNumberOfFailedRows]</OutArgument>
                                         </Assign.To>
                                         <Assign.Value>
-                                          <InArgument x:TypeArguments="x:String">[(CInt(NrOfOverInsats) + CInt(NrOfDubbel)).ToString]</InArgument>
+                                          <InArgument x:TypeArguments="x:String">[(CInt(If(NrOfOverInsats Is Nothing, 0, CInt(NrOfOverInsats))) + CInt(If(NrOfDubbel Is Nothing, 0, CInt(NrOfDubbel)))).ToString]</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <Assign DisplayName="Assign TotalNumberOfNoHours" sap:VirtualizedContainerService.HintSize="496,81" sap2010:WorkflowViewState.IdRef="Assign_66">
+                                      <Assign DisplayName="Assign TotalNumberOfNoHours" sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_66">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:String">[TotalNumberOfNoHours]</OutArgument>
                                         </Assign.To>
@@ -934,12 +934,51 @@
                                           <InArgument x:TypeArguments="x:String">[dt_AddToExcelFile.AsEnumerable.Where(function(x) String.IsNullOrWhiteSpace(x("HANTERAS EJ").tostring) and String.IsNullOrWhiteSpace(x("KVANTITET").tostring)).Count.ToString]</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <Assign DisplayName="Assign MailBodyText" sap:VirtualizedContainerService.HintSize="496,85" sap2010:WorkflowViewState.IdRef="Assign_62">
+                                      <Assign DisplayName="Assign TotalNumberOfRows" sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_68">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[TotalNumberOfRows]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[(dt_AddToExcelFile.AsEnumerable().Where(Function(row) String.IsNullOrEmpty(row("HANTERAS EJ").ToString())).Count()).ToString]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign DisplayName="Assign MailBodyText" sap:VirtualizedContainerService.HintSize="450,83" sap2010:WorkflowViewState.IdRef="Assign_62">
                                         <Assign.To>
                                           <OutArgument x:TypeArguments="x:Object">[MailBodyText]</OutArgument>
                                         </Assign.To>
                                         <Assign.Value>
-                                          <InArgument x:TypeArguments="x:Object" xml:space="preserve">["Hej! &lt;br&gt; Hantering av bilaga för fil " + ExcelFileName.Replace(ExcelFileProcessingSuffix, ExcelFileFinishedSuffix) + " är slutförd." + "&lt;br&gt;" + "&lt;br&gt;" + "&lt;br&gt;" +
+                                          <InArgument x:TypeArguments="x:Object" xml:space="preserve">["Hej! &lt;br&gt; Hantering av bilaga för fil " + If(String.IsNullOrEmpty(ExcelFileName), "tom", ExcelFileName.Replace(ExcelFileProcessingSuffix, ExcelFileFinishedSuffix)) + " är slutförd." + "&lt;br&gt;" + "&lt;br&gt;" + "&lt;br&gt;" +
+"&lt;b&gt;-- FIL --&lt;/b&gt;&lt;br&gt;" + "&lt;a href='" + If(String.IsNullOrEmpty(ExcelFilePath), "tom", ExcelFilePath) + If(String.IsNullOrEmpty(ExcelFileName), "tom", ExcelFileName.Replace(ExcelFileProcessingSuffix, ExcelFileFinishedSuffix)) + "'&gt;" + If(String.IsNullOrEmpty(ExcelFilePath), "tom", ExcelFilePath) + If(String.IsNullOrEmpty(ExcelFileName), "tom", ExcelFileName.Replace(ExcelFileProcessingSuffix, ExcelFileFinishedSuffix)) + "&lt;/a&gt;&lt;br&gt;&lt;br&gt;" +
+"&lt;b&gt;-- SUMMERING av Enskild Insats, Dubbletter och insatser med mer än 110 timmar/månad--&lt;/b&gt;" + "&lt;br&gt;" + "&lt;br&gt;" +
+"Totalt antal behandlade rader: " + If(TotalNumberOfRows.ToString Is Nothing, "tom", TotalNumberOfRows.ToString()) + "." + "&lt;br&gt;" +
+"Rader UTAN avvikelser: " + If(TotalNumberOfSucRows.ToString Is Nothing, "tom", TotalNumberOfSucRows.ToString()) + "." + "&lt;br&gt;" +
+"Rader MED avvikelser: " + If(TotalNumberOfFailedRows.ToString Is Nothing, "tom", TotalNumberOfFailedRows.ToString()) + " varav " + If(NrOfDubbel.ToString Is Nothing, "tom", NrOfDubbel.ToString()) + " dubbletter, " + 
+If(NrOfOverInsats.ToString Is Nothing, "tom", NrOfOverInsats.ToString()) + " antal rader med överstigande tid per insats." + "&lt;br&gt;" +
+"Antal insatser utan rapporterade timmar: " + If(TotalNumberOfNoHours Is Nothing, "tom", TotalNumberOfNoHours.ToString()) + "&lt;br&gt;" + "&lt;br&gt;" + "&lt;br&gt;" +
+If(PersonsTotalCheckOverDue.ToString Is Nothing, "tom", PersonsTotalCheckOverDue.ToString()) + " där omvårdnadstagare har insatser med mer än 110 timmar/månad." + "&lt;br&gt;" +
+"Totalt rapporterade timmar för dubbletter: " + If(TotalDubbletter.ToString Is Nothing, "tom", TotalDubbletter.ToString()) + ". " + "&lt;br&gt;" +
+"Totalt antal timmar som är rapporterade över tröskelvärde för enskilda insatser: " + If(TotalTOFEI.ToString Is Nothing, "tom", TotalTOFEI.ToString()) + "&lt;br&gt;" + "&lt;br&gt;" + "&lt;br&gt;" +
+"&lt;b&gt;-- SUMMERING för omvårdnad och service per leverantör --&lt;/b&gt; " + "&lt;br&gt;" + 
+If(ResursDictionary Is Nothing OrElse ResursDictionary.Count = 0, 
+    "tom", 
+    String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är de rapporterat " + kvp.Value + " timmar."))
+)]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="CommentOut_19">
+                                        <ui:CommentOut.Body>
+                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,196" sap2010:WorkflowViewState.IdRef="Sequence_112">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign DisplayName="Assign MailBodyText" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_67">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Object">[MailBodyText]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Object" xml:space="preserve">["Hej! &lt;br&gt; Hantering av bilaga för fil " + ExcelFileName.Replace(ExcelFileProcessingSuffix, ExcelFileFinishedSuffix) + " är slutförd." + "&lt;br&gt;" + "&lt;br&gt;" + "&lt;br&gt;" +
 "&lt;b&gt;-- FIL --&lt;/b&gt;&lt;br&gt;" + "&lt;a href='" + ExcelFilePath + ExcelFileName.Replace(ExcelFileProcessingSuffix, ExcelFileFinishedSuffix) + "'&gt;" + ExcelFilePath + ExcelFileName.Replace(ExcelFileProcessingSuffix, ExcelFileFinishedSuffix) + "&lt;/a&gt;&lt;br&gt;&lt;br&gt;" +
 "&lt;b&gt;-- SUMMERING av Enskild Insats, Dubbletter och insatser med mer än 110 timmar/månad--&lt;/b&gt;" + "&lt;br&gt;"+ "&lt;br&gt;" +
 "Totalt antal behandlade rader: " + TotalNumberOfRows + "." + "&lt;br&gt;" +
@@ -952,9 +991,18 @@ PersonsTotalCheckOverDue.ToString + " där omvårdnadstagare har insatser med me
 "Totalt antal timmar som är rapporterade över tröskelvärde för enskilda insatser: " + TotalTOFEI.ToString +"&lt;br&gt;" +"&lt;br&gt;" + "&lt;br&gt;" +
 "&lt;b&gt;-- SUMMERING för omvårdnad och service per leverantör --&lt;/b&gt; " +"&lt;br&gt;" + 
 String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är de rapporterat " + kvp.Value.ToString() + " timmar."))]</InArgument>
-                                        </Assign.Value>
-                                      </Assign>
-                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="496,52" sap2010:WorkflowViewState.IdRef="CommentOut_18">
+                                              </Assign.Value>
+                                            </Assign>
+                                          </Sequence>
+                                        </ui:CommentOut.Body>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:CommentOut>
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="CommentOut_18">
                                         <ui:CommentOut.Body>
                                           <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,252" sap2010:WorkflowViewState.IdRef="Sequence_108">
                                             <sap:WorkflowViewStateService.ViewState>
@@ -973,7 +1021,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:CommentOut>
                                     </Sequence>
-                                    <TryCatch DisplayName="Try Catch Send Email" sap:VirtualizedContainerService.HintSize="592,771" sap2010:WorkflowViewState.IdRef="TryCatch_22">
+                                    <TryCatch DisplayName="Try Catch Send Email" sap:VirtualizedContainerService.HintSize="512,52" sap2010:WorkflowViewState.IdRef="TryCatch_22">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1011,10 +1059,10 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                                         </Sequence>
                                       </TryCatch.Try>
                                       <TryCatch.Catches>
-                                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="558,21" sap2010:WorkflowViewState.IdRef="Catch`1_14">
+                                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,210" sap2010:WorkflowViewState.IdRef="Catch`1_14">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
@@ -1030,7 +1078,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                                   </Sequence>
                                 </TryCatch.Try>
                                 <TryCatch.Catches>
-                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="624,21" sap2010:WorkflowViewState.IdRef="Catch`1_22">
+                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="578,21" sap2010:WorkflowViewState.IdRef="Catch`1_22">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1053,7 +1101,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                                   </Catch>
                                 </TryCatch.Catches>
                               </TryCatch>
-                              <Sequence DisplayName="Empty dt and list arg" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_71">
+                              <Sequence DisplayName="Empty dt and list arg" sap:VirtualizedContainerService.HintSize="612,81" sap2010:WorkflowViewState.IdRef="Sequence_71">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1126,7 +1174,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                                   </Assign.Value>
                                 </Assign>
                               </Sequence>
-                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="CommentOut_14">
+                              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="612,52" sap2010:WorkflowViewState.IdRef="CommentOut_14">
                                 <ui:CommentOut.Body>
                                   <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,252" sap2010:WorkflowViewState.IdRef="Sequence_99">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -1152,7 +1200,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:CommentOut>
                             </Sequence>
-                            <Assign DisplayName="Assign NewFileTrue" sap:VirtualizedContainerService.HintSize="512,81" sap2010:WorkflowViewState.IdRef="Assign_48">
+                            <Assign DisplayName="Assign NewFileTrue" sap:VirtualizedContainerService.HintSize="674,82" sap2010:WorkflowViewState.IdRef="Assign_48">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Boolean">[NewFile]</OutArgument>
                               </Assign.To>
@@ -1183,7 +1231,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
-                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="654,21" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+                    <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="896,21" sap2010:WorkflowViewState.IdRef="Catch`1_9">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1194,7 +1242,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="Exception" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Handle Business Exception" sap:VirtualizedContainerService.HintSize="500,574" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                        <Sequence DisplayName="Handle Business Exception" sap:VirtualizedContainerService.HintSize="500,570" sap2010:WorkflowViewState.IdRef="Sequence_29">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1254,7 +1302,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                         </Sequence>
                       </ActivityAction>
                     </Catch>
-                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="654,21" sap2010:WorkflowViewState.IdRef="Catch`1_10">
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="896,21" sap2010:WorkflowViewState.IdRef="Catch`1_10">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1546,7 +1594,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
                               <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
-                              <av:PointCollection x:Key="ConnectorLocation">350,110.66666666666666 350,140.66666666666669 349.83333333333303,140.66666666666669 349.83333333333303,212.333333333333</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">350,110.66666666666666 350,140.66666666666666 349.83333333333303,140.66666666666666 349.83333333333303,212.333333333333</av:PointCollection>
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -1561,7 +1609,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
                         <Transition DisplayName="System Exception (failed initialization)" sap:VirtualizedContainerService.HintSize="448.8,802.4" sap2010:WorkflowViewState.IdRef="Transition_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:PointCollection x:Key="ConnectorLocation">350,110.66666666666666 350,140.66666666666669 82.8,140.66666666666669 82.8,208</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">350,110.66666666666666 350,140.66666666666666 82.8,140.66666666666666 82.8,208</av:PointCollection>
                               <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
                               <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1697,7 +1745,7 @@ String.Join("&lt;br&gt;", ResursDictionary.Select(Function(kvp) kvp.Key + " är 
         <Transition sap2010:Annotation.AnnotationText="This is a simple mecanism to stop the process.&#xA;In reallife scenario you can stop the process when there is no more data to process or on a schedule." DisplayName="No Data" sap:VirtualizedContainerService.HintSize="553,1140" sap2010:WorkflowViewState.IdRef="Transition_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <av:PointCollection x:Key="ConnectorLocation">349.83333333333303,325.33333333333303 349.83333333333303,355.333333333333 90,355.333333333333 90,328</av:PointCollection>
+              <av:PointCollection x:Key="ConnectorLocation">349.83333333333303,325.33333333333303 349.83333333333303,355.33333333333303 90,355.33333333333303 90,328</av:PointCollection>
               <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
               <x:Int32 x:Key="DestConnectionPointIndex">39</x:Int32>
               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
